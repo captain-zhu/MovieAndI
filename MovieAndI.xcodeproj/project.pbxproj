@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA17BB5AC81C4BC85B2CC557 /* libPods-MovieAndITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C726781BF648FD84B5F2467 /* libPods-MovieAndITests.a */; };
 		CB0980131BBE295D00679768 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980121BBE295D00679768 /* main.m */; };
 		CB0980161BBE295D00679768 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980151BBE295D00679768 /* AppDelegate.m */; };
-		CB0980191BBE295D00679768 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980181BBE295D00679768 /* ViewController.m */; };
 		CB09801C1BBE295D00679768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB09801A1BBE295D00679768 /* Main.storyboard */; };
 		CB09801F1BBE295D00679768 /* MovieAndI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB09801D1BBE295D00679768 /* MovieAndI.xcdatamodeld */; };
 		CB0980211BBE295D00679768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0980201BBE295D00679768 /* Assets.xcassets */; };
 		CB0980241BBE295D00679768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0980221BBE295D00679768 /* LaunchScreen.storyboard */; };
 		CB09802F1BBE295E00679768 /* MovieAndITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB09802E1BBE295E00679768 /* MovieAndITests.m */; };
 		CB09803A1BBE295E00679768 /* MovieAndIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980391BBE295E00679768 /* MovieAndIUITests.m */; };
+		CB0980491BBE378300679768 /* ZYXTMDBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980481BBE378300679768 /* ZYXTMDBConstants.m */; settings = {ASSET_TAGS = (); }; };
+		CB09804D1BBE391000679768 /* ZYXTMDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CB09804C1BBE391000679768 /* ZYXTMDBClient.m */; settings = {ASSET_TAGS = (); }; };
+		CBD9E49D1BC0AFF4005689B1 /* ZYXConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD9E49C1BC0AFF4005689B1 /* ZYXConfig.m */; settings = {ASSET_TAGS = (); }; };
+		CBD9E4A01BC0D0C3005689B1 /* ZYXImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD9E49F1BC0D0C3005689B1 /* ZYXImageCache.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F485A0506138B3282EA233C /* Pods-MovieAndITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieAndITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieAndITests/Pods-MovieAndITests.release.xcconfig"; sourceTree = "<group>"; };
+		9C726781BF648FD84B5F2467 /* libPods-MovieAndITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MovieAndITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B73F5E4CE2E4D45B2AE4632F /* Pods-MovieAndITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieAndITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieAndITests/Pods-MovieAndITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB09800E1BBE295D00679768 /* MovieAndI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieAndI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0980121BBE295D00679768 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CB0980141BBE295D00679768 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB0980151BBE295D00679768 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CB0980171BBE295D00679768 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CB0980181BBE295D00679768 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CB09801B1BBE295D00679768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB09801E1BBE295D00679768 /* MovieAndI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieAndI.xcdatamodel; sourceTree = "<group>"; };
 		CB0980201BBE295D00679768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +58,14 @@
 		CB0980351BBE295E00679768 /* MovieAndIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAndIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0980391BBE295E00679768 /* MovieAndIUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieAndIUITests.m; sourceTree = "<group>"; };
 		CB09803B1BBE295E00679768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB0980471BBE378300679768 /* ZYXTMDBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXTMDBConstants.h; path = Networking/ZYXTMDBConstants.h; sourceTree = "<group>"; };
+		CB0980481BBE378300679768 /* ZYXTMDBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXTMDBConstants.m; path = Networking/ZYXTMDBConstants.m; sourceTree = "<group>"; };
+		CB09804B1BBE391000679768 /* ZYXTMDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXTMDBClient.h; path = Networking/ZYXTMDBClient.h; sourceTree = "<group>"; };
+		CB09804C1BBE391000679768 /* ZYXTMDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXTMDBClient.m; path = Networking/ZYXTMDBClient.m; sourceTree = "<group>"; };
+		CBD9E49B1BC0AFF4005689B1 /* ZYXConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXConfig.h; path = Networking/ZYXConfig.h; sourceTree = "<group>"; };
+		CBD9E49C1BC0AFF4005689B1 /* ZYXConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXConfig.m; path = Networking/ZYXConfig.m; sourceTree = "<group>"; };
+		CBD9E49E1BC0D0C3005689B1 /* ZYXImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXImageCache.h; path = Networking/ZYXImageCache.h; sourceTree = "<group>"; };
+		CBD9E49F1BC0D0C3005689B1 /* ZYXImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXImageCache.m; path = Networking/ZYXImageCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA17BB5AC81C4BC85B2CC557 /* libPods-MovieAndITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		614678916421D6CAAA31A77A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C726781BF648FD84B5F2467 /* libPods-MovieAndITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CB0980051BBE295D00679768 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +109,8 @@
 				CB09802D1BBE295E00679768 /* MovieAndITests */,
 				CB0980381BBE295E00679768 /* MovieAndIUITests */,
 				CB09800F1BBE295D00679768 /* Products */,
+				E608AF923E6BA9A699CE74E0 /* Pods */,
+				614678916421D6CAAA31A77A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,14 +129,13 @@
 			children = (
 				CB0980141BBE295D00679768 /* AppDelegate.h */,
 				CB0980151BBE295D00679768 /* AppDelegate.m */,
-				CB0980171BBE295D00679768 /* ViewController.h */,
-				CB0980181BBE295D00679768 /* ViewController.m */,
 				CB09801A1BBE295D00679768 /* Main.storyboard */,
 				CB0980201BBE295D00679768 /* Assets.xcassets */,
 				CB0980221BBE295D00679768 /* LaunchScreen.storyboard */,
 				CB0980251BBE295D00679768 /* Info.plist */,
 				CB09801D1BBE295D00679768 /* MovieAndI.xcdatamodeld */,
 				CB0980111BBE295D00679768 /* Supporting Files */,
+				CB09804A1BBE378A00679768 /* Networking */,
 			);
 			path = MovieAndI;
 			sourceTree = "<group>";
@@ -143,6 +166,30 @@
 			path = MovieAndIUITests;
 			sourceTree = "<group>";
 		};
+		CB09804A1BBE378A00679768 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CB0980471BBE378300679768 /* ZYXTMDBConstants.h */,
+				CB0980481BBE378300679768 /* ZYXTMDBConstants.m */,
+				CB09804B1BBE391000679768 /* ZYXTMDBClient.h */,
+				CB09804C1BBE391000679768 /* ZYXTMDBClient.m */,
+				CBD9E49B1BC0AFF4005689B1 /* ZYXConfig.h */,
+				CBD9E49C1BC0AFF4005689B1 /* ZYXConfig.m */,
+				CBD9E49E1BC0D0C3005689B1 /* ZYXImageCache.h */,
+				CBD9E49F1BC0D0C3005689B1 /* ZYXImageCache.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		E608AF923E6BA9A699CE74E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B73F5E4CE2E4D45B2AE4632F /* Pods-MovieAndITests.debug.xcconfig */,
+				8F485A0506138B3282EA233C /* Pods-MovieAndITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB0980411BBE295E00679768 /* Build configuration list for PBXNativeTarget "MovieAndITests" */;
 			buildPhases = (
+				EA092D78E82382710F82FCB8 /* Check Pods Manifest.lock */,
 				CB0980261BBE295E00679768 /* Sources */,
 				CB0980271BBE295E00679768 /* Frameworks */,
 				CB0980281BBE295E00679768 /* Resources */,
+				058C40D0AAA0C9E1E31DD708 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,15 +320,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		058C40D0AAA0C9E1E31DD708 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovieAndITests/Pods-MovieAndITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA092D78E82382710F82FCB8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CB09800A1BBE295D00679768 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB0980191BBE295D00679768 /* ViewController.m in Sources */,
+				CBD9E4A01BC0D0C3005689B1 /* ZYXImageCache.m in Sources */,
+				CB0980491BBE378300679768 /* ZYXTMDBConstants.m in Sources */,
 				CB0980161BBE295D00679768 /* AppDelegate.m in Sources */,
+				CB09804D1BBE391000679768 /* ZYXTMDBClient.m in Sources */,
 				CB09801F1BBE295D00679768 /* MovieAndI.xcdatamodeld in Sources */,
 				CB0980131BBE295D00679768 /* main.m in Sources */,
+				CBD9E49D1BC0AFF4005689B1 /* ZYXConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +523,7 @@
 		};
 		CB0980421BBE295E00679768 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B73F5E4CE2E4D45B2AE4632F /* Pods-MovieAndITests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MovieAndITests/Info.plist;
@@ -450,6 +536,7 @@
 		};
 		CB0980431BBE295E00679768 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F485A0506138B3282EA233C /* Pods-MovieAndITests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MovieAndITests/Info.plist;
@@ -503,6 +590,7 @@
 				CB0980401BBE295E00679768 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB0980411BBE295E00679768 /* Build configuration list for PBXNativeTarget "MovieAndITests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +599,7 @@
 				CB0980431BBE295E00679768 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB0980441BBE295E00679768 /* Build configuration list for PBXNativeTarget "MovieAndIUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +608,7 @@
 				CB0980461BBE295E00679768 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
