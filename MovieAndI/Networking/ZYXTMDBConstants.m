@@ -131,8 +131,9 @@ NSString *const kMethodsTVPopular = @"tv/popular";
 NSString *const kURLKeysID = @"id";
 NSString *const kURLKeysErrorStatusMessage = @"status_message";
 
-#pragma mark - PosterSizes
+#pragma mark - Config Keys
 
+NSString *const kConfigKeysBaseURL = @"base_url";
 NSString *const kConfigKeysSecureBaseImageURL = @"secure_base_url";
 NSString *const kConfigKeysImages = @"images";
 NSString *const kConfigKeysBackdropSizes = @"backdrop_sizes";

@@ -59,7 +59,7 @@
 {
     NSDictionary *parameters = [[NSDictionary alloc] init];
     
-    [self taskForDataMethod:kMethodsConfiguration parameters:parameters completionHandler:^(id resullt, NSError *error) {
+    [self taskForGetMethod:kMethodsConfiguration parameters:parameters completionHandler:^(id resullt, NSError *error) {
         if (error) {
             completionHandler(NO, error);
         } else {
@@ -76,12 +76,12 @@
 
 
 
-#pragma mark - Task method for data
+#pragma mark - Get Task
 
-- (NSURLSessionDataTask *)taskForDataMethod:(NSString *)method parameters:(NSDictionary *)parameters completionHandler:(void(^)(id resullt, NSError *error))completionHandler
+- (NSURLSessionDataTask *)taskForGetMethod:(NSString *)method parameters:(NSDictionary *)parameters completionHandler:(void(^)(id resullt, NSError *error))completionHandler
 {
     NSMutableString *subtitutedMethod;
-    NSMutableDictionary *mutableDictionary = parameters.mutableCopy;
+    NSMutableDictionary *mutableDictionary = parameters? [parameters mutableCopy]: [NSMutableDictionary new];
     mutableDictionary[kParameterKeysApiKey] = kConstantsApiKey;
     
     if (([method rangeOfString:@"{id}"].location != NSNotFound)) {
@@ -95,14 +95,28 @@
     
     NSString *urlString = [[kConstantsBaseUrlSSL stringByAppendingString:subtitutedMethod] stringByAppendingString:[ZYXTMDBClient escapedParameters:mutableDictionary]];
     NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"GET"];
     
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             NSError *newError = [ZYXTMDBClient errorForData:data withResponse:response withError:error];
             completionHandler(nil, newError);
+        } else if ([response isKindOfClass:[NSHTTPURLResponse class]]){
+            NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+            if (statusCode >= 200 && statusCode <= 299) {
+                if (data) {
+                    NSLog(@"Step 3 - taskForResource's completionHandler is invoked.");
+                    [ZYXTMDBClient parseJSON:data WithCompletionHandler:completionHandler];
+                } else {
+                    NSLog(@"Your request dit return any data!");
+                }
+                
+            } else {
+                NSLog(@"Your request returned an invalid response!Status Code: %ld", statusCode);
+            }
         } else {
-            NSLog(@"Step 3 - taskForResource's completionHandler is invoked.");
+            NSLog(@"Your request returned an invalid response!");
         }
     }];
     
@@ -114,7 +128,7 @@
 
 - (NSURLSessionTask *)taskForImageWithSize:(NSString *)size filePath:(NSString *)filePath completionHandler:(void(^)(NSData *imageData, NSError *error))completionHandler
 {
-    NSURL *baseURL= [NSURL URLWithString:self.config.baseImageURL];
+    NSURL *baseURL= [NSURL URLWithString:self.config.secureBaseImageURL];
     NSURL *url = [[baseURL URLByAppendingPathComponent:size] URLByAppendingPathComponent:filePath];
     
     NSLog(@"%@", url);
@@ -127,8 +141,67 @@
         } else {
             completionHandler(data, nil);
         }
-    }];    
+    }];
+    [task resume];
+    return task;
 }
+
+#pragma mark - Post Task
+
+- (NSURLSessionDataTask *)taskForPostMethod:(NSString *)method parameters:(NSDictionary *)parameters JSONBody:(NSDictionary *)jsonBody completionHandler:(void(^)(id resullt, NSError *error))completionHandler
+{
+    NSMutableString *subtitutedMethod;
+    NSMutableDictionary *mutableDictionary = parameters? [parameters mutableCopy]: [NSMutableDictionary new];
+    mutableDictionary[kParameterKeysApiKey] = kConstantsApiKey;
+    
+    if (([method rangeOfString:@"{id}"].location != NSNotFound)) {
+        if (!parameters[kURLKeysID]) {
+            return nil;
+        } else {
+            subtitutedMethod = [ZYXTMDBClient subtituteKeyInMethod:method key:@"id" value:parameters[kURLKeysID]].mutableCopy;
+            [mutableDictionary removeObjectForKey:kURLKeysID];
+        }
+    }
+    
+    NSString *urlString = [[kConstantsBaseUrlSSL stringByAppendingString:subtitutedMethod] stringByAppendingString:[ZYXTMDBClient escapedParameters:mutableDictionary]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *jsonBodyError = nil;
+    [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:jsonBody options:NSJSONWritingPrettyPrinted error:&jsonBodyError]];
+    if (jsonBodyError) {
+        NSLog(@"Set HTTPBody failed");
+        return nil;
+    }
+    
+    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSError *newError = [ZYXTMDBClient errorForData:data withResponse:response withError:error];
+            completionHandler(nil, newError);
+        } else if ([response isKindOfClass:[NSHTTPURLResponse class]]){
+            NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+            if (statusCode >= 200 && statusCode <= 299) {
+                if (data) {
+                    NSLog(@"Step 3 - taskForResource's completionHandler is invoked.");
+                    [ZYXTMDBClient parseJSON:data WithCompletionHandler:completionHandler];
+                } else {
+                    NSLog(@"Your request dit return any data!");
+                }
+                
+            } else {
+                NSLog(@"Your request returned an invalid response!Status Code: %ld", statusCode);
+            }
+        } else {
+            NSLog(@"Your request returned an invalid response!");
+        }
+    }];
+    
+    [task resume];
+    return task;
+};
 
 
 #pragma mark - Helper
@@ -147,6 +220,10 @@
 //Help function. 如果传递回了status message，那么生成个新的error。否则，直接使用之前的error
 + (NSError *)errorForData:(NSData *)data withResponse:(NSURLResponse *)response withError:(NSError *)error
 {
+    if (data == nil) {
+        return error;
+    }
+    
     const NSDictionary *parsedResult = [NSJSONSerialization JSONObjectWithData:data
                                                                        options:NSJSONReadingAllowFragments
                                                                          error:nil];
@@ -171,11 +248,11 @@
 {
     NSError *error = nil;
     id parsedResult = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-    if (!error){
-        completionHandler(parsedResult, nil);
+    if (error){
+        completionHandler(nil, error);
     } else {
         NSLog(@"Step 4 - parseJSONWithCompletionHandler is invoked.");
-        completionHandler(nil, error);
+        completionHandler(parsedResult, nil);
     }
 }
 
@@ -193,7 +270,7 @@
     if (!urlValues || !urlValues.count) {
         return [urlValues componentsJoinedByString:@"&"];
     } else {
-        return @"?";
+        return @"";
     }
 }
 

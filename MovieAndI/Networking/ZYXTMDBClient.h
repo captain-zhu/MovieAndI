@@ -24,10 +24,11 @@
 + (ZYXImageCache *)imageCache;
 
 #pragma mark - update config helper method
-- (void)updateConfigWithCompletionHandler:(void(^)(bool didSuccess, NSError *error))completionHandler
+- (void)updateConfigWithCompletionHandler:(void(^)(bool didSuccess, NSError *error))completionHandler;
 
 #pragma mark - Task Methods
-- (NSURLSessionDataTask *)taskForDataMethod:(NSString *)method parameters:(NSDictionary *)parameters completionHandler:(void(^)(id resullt, NSError *error))completionHandler;
+- (NSURLSessionDataTask *)taskForGetMethod:(NSString *)method parameters:(NSDictionary *)parameters completionHandler:(void(^)(id resullt, NSError *error))completionHandler;
+- (NSURLSessionTask *)taskForImageWithSize:(NSString *)size filePath:(NSString *)filePath completionHandler:(void(^)(NSData *imageData, NSError *error))completionHandler;
 
 #pragma mark - Helper Methods
 + (NSString *)subtituteKeyInMethod:(NSString *)method key:(NSString *)key value:(NSString *)value;

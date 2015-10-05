@@ -18,6 +18,7 @@
 		CB09803A1BBE295E00679768 /* MovieAndIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980391BBE295E00679768 /* MovieAndIUITests.m */; };
 		CB0980491BBE378300679768 /* ZYXTMDBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980481BBE378300679768 /* ZYXTMDBConstants.m */; settings = {ASSET_TAGS = (); }; };
 		CB09804D1BBE391000679768 /* ZYXTMDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CB09804C1BBE391000679768 /* ZYXTMDBClient.m */; settings = {ASSET_TAGS = (); }; };
+		CB2AF7891BC1F55400075802 /* TMDBClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2AF7881BC1F55400075802 /* TMDBClientTest.m */; settings = {ASSET_TAGS = (); }; };
 		CBD9E49D1BC0AFF4005689B1 /* ZYXConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD9E49C1BC0AFF4005689B1 /* ZYXConfig.m */; settings = {ASSET_TAGS = (); }; };
 		CBD9E4A01BC0D0C3005689B1 /* ZYXImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD9E49F1BC0D0C3005689B1 /* ZYXImageCache.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		CB0980481BBE378300679768 /* ZYXTMDBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXTMDBConstants.m; path = Networking/ZYXTMDBConstants.m; sourceTree = "<group>"; };
 		CB09804B1BBE391000679768 /* ZYXTMDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXTMDBClient.h; path = Networking/ZYXTMDBClient.h; sourceTree = "<group>"; };
 		CB09804C1BBE391000679768 /* ZYXTMDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXTMDBClient.m; path = Networking/ZYXTMDBClient.m; sourceTree = "<group>"; };
+		CB2AF7881BC1F55400075802 /* TMDBClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDBClientTest.m; sourceTree = "<group>"; };
 		CBD9E49B1BC0AFF4005689B1 /* ZYXConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXConfig.h; path = Networking/ZYXConfig.h; sourceTree = "<group>"; };
 		CBD9E49C1BC0AFF4005689B1 /* ZYXConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXConfig.m; path = Networking/ZYXConfig.m; sourceTree = "<group>"; };
 		CBD9E49E1BC0D0C3005689B1 /* ZYXImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXImageCache.h; path = Networking/ZYXImageCache.h; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				CB09802E1BBE295E00679768 /* MovieAndITests.m */,
 				CB0980301BBE295E00679768 /* Info.plist */,
+				CB2AF7881BC1F55400075802 /* TMDBClientTest.m */,
 			);
 			path = MovieAndITests;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB09802F1BBE295E00679768 /* MovieAndITests.m in Sources */,
+				CB2AF7891BC1F55400075802 /* TMDBClientTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

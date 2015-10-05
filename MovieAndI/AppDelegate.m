@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ZYXTMDBClient.h"
+#import "ZYXTMDBConstants.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    NSDictionary *parameters = @{kURLKeysID : @"550"};
+    [[ZYXTMDBClient sharedInstance]taskForGetMethod:kMethodsMovieID parameters:parameters completionHandler:^(id resullt, NSError *error) {
+        if (!error) {
+            NSLog(@"success");
+        }
+    }];
     return YES;
 }
 
