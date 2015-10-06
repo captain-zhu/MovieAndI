@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bcu-UW-gLI">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In View Controller-->
+        <scene sceneID="WGA-aK-LF8">
+            <objects>
+                <viewController storyboardIdentifier="ZYXSignInViewController" id="Bcu-UW-gLI" customClass="ZYXSignInViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="64F-Hl-Bsu"/>
+                        <viewControllerLayoutGuide type="bottom" id="fa6-Zu-2PG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sch-RJ-VTn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_256" translatesAutoresizingMaskIntoConstraints="NO" id="4oD-J6-2GW">
+                                <rect key="frame" x="236" y="127" width="128" height="128"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="5EZ-RC-804"/>
+                                    <constraint firstAttribute="width" constant="128" id="IaZ-KD-dgK"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我，电影和我" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pd-jO-Kag">
+                                <rect key="frame" x="216" y="275" width="168" height="41"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="IC7-8S-N69"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhv-Z3-npr" userLabel="debuglabel">
+                                <rect key="frame" x="300" y="395" width="0.0" height="41"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="3BP-aD-Ile"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7d-mg-Xfv" customClass="borderedButton">
+                                <rect key="frame" x="197" y="324" width="206" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="Zmj-LD-40t"/>
+                                    <constraint firstAttribute="height" constant="44" id="oaB-ui-Ogm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="使用The Movie DB认证">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.62352941179999999" green="0.62352941179999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonTouchUpInside:" destination="Bcu-UW-gLI" eventType="touchUpInside" id="auT-9K-pT8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.35070900710000003" green="0.79530321839999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4Pd-jO-Kag" firstAttribute="centerX" secondItem="Sch-RJ-VTn" secondAttribute="centerX" id="4ir-y6-F9m"/>
+                            <constraint firstItem="Qhv-Z3-npr" firstAttribute="centerX" secondItem="Sch-RJ-VTn" secondAttribute="centerX" id="WcE-c5-KHZ"/>
+                            <constraint firstItem="Qhv-Z3-npr" firstAttribute="top" secondItem="r7d-mg-Xfv" secondAttribute="bottom" constant="20" id="ZLI-RA-6Ur"/>
+                            <constraint firstItem="4oD-J6-2GW" firstAttribute="centerX" secondItem="Sch-RJ-VTn" secondAttribute="centerX" id="iEX-4T-Y7b"/>
+                            <constraint firstItem="4oD-J6-2GW" firstAttribute="top" secondItem="64F-Hl-Bsu" secondAttribute="bottom" constant="107" id="nUL-u3-hZO"/>
+                            <constraint firstItem="4Pd-jO-Kag" firstAttribute="top" secondItem="4oD-J6-2GW" secondAttribute="bottom" constant="20" id="uU4-kF-czP"/>
+                            <constraint firstItem="r7d-mg-Xfv" firstAttribute="top" secondItem="4Pd-jO-Kag" secondAttribute="bottom" constant="15" id="xOR-Es-i8Z"/>
+                            <constraint firstItem="r7d-mg-Xfv" firstAttribute="centerX" secondItem="Sch-RJ-VTn" secondAttribute="centerX" id="zYc-vi-3Fk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="debugLabel" destination="Qhv-Z3-npr" id="jyl-zL-cGC"/>
+                        <outlet property="loginButton" destination="r7d-mg-Xfv" id="mYR-Hc-d2y"/>
+                        <outlet property="titleLabel" destination="4Pd-jO-Kag" id="j8r-tH-bx6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lzL-Kp-wEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="517" y="389"/>
+        </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="MEk-u8-K3U">
+            <objects>
+                <viewController storyboardIdentifier="ZYXAuthViewController" id="7dl-ZA-ct8" customClass="ZYXAuthViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZD8-St-h8s"/>
+                        <viewControllerLayoutGuide type="bottom" id="WlN-bQ-s7B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gxX-W5-Yus">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="127-t7-k4L">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="127-t7-k4L" firstAttribute="leading" secondItem="gxX-W5-Yus" secondAttribute="leadingMargin" constant="-20" id="8x3-2l-SmC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="127-t7-k4L" secondAttribute="trailing" constant="-20" id="cR0-qu-jaz"/>
+                            <constraint firstItem="WlN-bQ-s7B" firstAttribute="top" secondItem="127-t7-k4L" secondAttribute="bottom" id="ogg-Fd-hkw"/>
+                            <constraint firstItem="127-t7-k4L" firstAttribute="top" secondItem="ZD8-St-h8s" secondAttribute="bottom" id="wJU-vg-FU9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="127-t7-k4L" id="PjP-rR-xUj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="okg-Tt-KFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1217" y="389"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera_256" width="256" height="256"/>
+    </resources>
+</document>

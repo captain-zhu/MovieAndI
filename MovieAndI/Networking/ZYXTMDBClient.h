@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZYXTMDBConstants.h"
 #import "ZYXImageCache.h"
 #import "ZYXConfig.h"
+#import "USER.h"
 
 @interface ZYXTMDBClient : NSObject
 
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSString *sessionID;
-@property (nonatomic) NSInteger userID;
+@property (nonatomic, strong) USER *user;
 @property (nonatomic, strong) ZYXConfig *config;
 
 #pragma mark - Shared Instance
@@ -37,3 +37,6 @@
 + (NSString *)escapedParameters:(NSDictionary *)parameters;
 
 @end
+
+#import "ZYXTMDBClient+ZYXConvenience.h"
+#import "ZYXTMDBClient+ZYXConstants.h"

@@ -80,7 +80,7 @@
 
 - (NSURLSessionDataTask *)taskForGetMethod:(NSString *)method parameters:(NSDictionary *)parameters completionHandler:(void(^)(id resullt, NSError *error))completionHandler
 {
-    NSMutableString *subtitutedMethod;
+    NSMutableString *subtitutedMethod = method;
     NSMutableDictionary *mutableDictionary = parameters? [parameters mutableCopy]: [NSMutableDictionary new];
     mutableDictionary[kParameterKeysApiKey] = kConstantsApiKey;
     
@@ -93,7 +93,12 @@
         }
     }
     
-    NSString *urlString = [[kConstantsBaseUrlSSL stringByAppendingString:subtitutedMethod] stringByAppendingString:[ZYXTMDBClient escapedParameters:mutableDictionary]];
+    NSMutableString *urlString = [kConstantsBaseUrlSSL mutableCopy];
+    if (subtitutedMethod) {
+        [urlString appendString:subtitutedMethod];
+    }
+    NSString *escapedString = [ZYXTMDBClient escapedParameters:mutableDictionary];
+    [urlString appendString:escapedString];
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];
@@ -268,10 +273,14 @@
         [urlValues addObject:finalString];
     }];
     if (!urlValues || !urlValues.count) {
-        return [urlValues componentsJoinedByString:@"&"];
-    } else {
         return @"";
+    } else {
+        NSMutableString *returnString = [(@"?") mutableCopy];
+        [returnString appendString:[urlValues componentsJoinedByString:@"&"]];
+        return returnString;
     }
 }
 
 @end
+
+

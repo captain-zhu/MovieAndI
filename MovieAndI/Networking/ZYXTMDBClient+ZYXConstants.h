@@ -1,11 +1,12 @@
 //
-//  ZYXTMDBConstants.h
+//  ZYXTMDBClient+ZYXConstants.h
 //  MovieAndI
 //
-//  Created by zhu yongxuan on 15/10/2.
+//  Created by zhu yongxuan on 15/10/5.
 //  Copyright © 2015年 zhu yongxuan. All rights reserved.
 //
-#import <Foundation/Foundation.h>
+
+#import "ZYXTMDBClient.h"
 
 #pragma mark - Constants
 
@@ -157,25 +158,27 @@ extern NSString *const kJSONBodyKeysMediaID;
 extern NSString *const kJSONBodyKeysFavorite;
 extern NSString *const kJSONBodyKeysWatchlist;
 
-//#pragma mark - JSONResponseKeys
-//
-//extern NSString *const kJSONResponseKeysStatusMessage;
-//extern NSString *const kJSONResponseKeysStatusCode;
-//extern NSString *const kJSONResponseKeysRequestToken;
-//extern NSString *const kJSONResponseKeysSessionID;
-//
-//extern NSString *const kJSONResponseKeysUserID;
-//
-//extern NSString *const kJSONResponseKeysConfigBaseImageURL;
-//extern NSString *const kJSONResponseKeysConfigImages;
-//extern NSString *const kJSONResponseKeysConfigPosterSizes;
-//extern NSString *const kJSONResponseKeysConfigProfileSizes;
-//
-//extern NSString *const kJSONResponseKeysMovieID;
-//extern NSString *const kJSONResponseKeysMovieTitle;
-//extern NSString *const kJSONResponseKeysMoviePosterPath;
-//extern NSString *const kJSONResponseKeysMovieReleaseDate;
-//extern NSString *const kJSONResponseKeysMovieReleaseYear;
-//extern NSString *const kJSONResponseKeysMovieResults;
+#pragma mark - JSONResponseKeys
 
+extern NSString *const kJSONResponseKeysStatusMessage;
+extern NSString *const kJSONResponseKeysStatusCode;
+extern NSString *const kJSONResponseKeysRequestToken;
+extern NSString *const kJSONResponseKeysSessionID;
 
+extern NSString *const kJSONResponseKeysUserID;
+
+extern NSString *const kJSONResponseKeysConfigBaseImageURL;
+extern NSString *const kJSONResponseKeysConfigImages;
+extern NSString *const kJSONResponseKeysConfigPosterSizes;
+extern NSString *const kJSONResponseKeysConfigProfileSizes;
+
+extern NSString *const kJSONResponseKeysMovieID;
+extern NSString *const kJSONResponseKeysMovieTitle;
+extern NSString *const kJSONResponseKeysMoviePosterPath;
+extern NSString *const kJSONResponseKeysMovieReleaseDate;
+extern NSString *const kJSONResponseKeysMovieReleaseYear;
+extern NSString *const kJSONResponseKeysMovieResults;
+
+@interface ZYXTMDBClient (ZYXConstants)
+
+@end

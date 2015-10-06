@@ -9,7 +9,6 @@
 // updateconfig函数用于更新最新的信息
 
 #import "ZYXConfig.h"
-#import "ZYXTMDBConstants.h"
 #import "ZYXTMDBClient.h"
 
 

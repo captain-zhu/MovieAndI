@@ -10,15 +10,25 @@
 		CA17BB5AC81C4BC85B2CC557 /* libPods-MovieAndITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C726781BF648FD84B5F2467 /* libPods-MovieAndITests.a */; };
 		CB0980131BBE295D00679768 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980121BBE295D00679768 /* main.m */; };
 		CB0980161BBE295D00679768 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980151BBE295D00679768 /* AppDelegate.m */; };
-		CB09801C1BBE295D00679768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB09801A1BBE295D00679768 /* Main.storyboard */; };
 		CB09801F1BBE295D00679768 /* MovieAndI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB09801D1BBE295D00679768 /* MovieAndI.xcdatamodeld */; };
 		CB0980211BBE295D00679768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0980201BBE295D00679768 /* Assets.xcassets */; };
-		CB0980241BBE295D00679768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0980221BBE295D00679768 /* LaunchScreen.storyboard */; };
 		CB09802F1BBE295E00679768 /* MovieAndITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB09802E1BBE295E00679768 /* MovieAndITests.m */; };
 		CB09803A1BBE295E00679768 /* MovieAndIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980391BBE295E00679768 /* MovieAndIUITests.m */; };
-		CB0980491BBE378300679768 /* ZYXTMDBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980481BBE378300679768 /* ZYXTMDBConstants.m */; settings = {ASSET_TAGS = (); }; };
 		CB09804D1BBE391000679768 /* ZYXTMDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CB09804C1BBE391000679768 /* ZYXTMDBClient.m */; settings = {ASSET_TAGS = (); }; };
 		CB2AF7891BC1F55400075802 /* TMDBClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2AF7881BC1F55400075802 /* TMDBClientTest.m */; settings = {ASSET_TAGS = (); }; };
+		CB2ED3E01BC2980500DAB877 /* StoryBoardUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3DF1BC2980500DAB877 /* StoryBoardUtilities.m */; settings = {ASSET_TAGS = (); }; };
+		CB2ED3E81BC299BC00DAB877 /* ZYXTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3E71BC299BC00DAB877 /* ZYXTabBarController.m */; settings = {ASSET_TAGS = (); }; };
+		CB2ED3EB1BC299EE00DAB877 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB2ED3EA1BC299EE00DAB877 /* TabBarController.storyboard */; settings = {ASSET_TAGS = (); }; };
+		CB2ED3EE1BC2A5FB00DAB877 /* ZYXTMDBClient+ZYXConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3ED1BC2A5FB00DAB877 /* ZYXTMDBClient+ZYXConvenience.m */; settings = {ASSET_TAGS = (); }; };
+		CB2ED3F11BC2AC3000DAB877 /* ZYXAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3F01BC2AC3000DAB877 /* ZYXAuthViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CB2ED3F71BC2C04600DAB877 /* USER+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3F41BC2C04600DAB877 /* USER+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		CB2ED3F81BC2C04600DAB877 /* USER.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3F61BC2C04600DAB877 /* USER.m */; settings = {ASSET_TAGS = (); }; };
+		CB2ED3FC1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3FB1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.m */; settings = {ASSET_TAGS = (); }; };
+		CB2ED3FF1BC2CA0900DAB877 /* CoreDataStackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3FE1BC2CA0900DAB877 /* CoreDataStackManager.m */; settings = {ASSET_TAGS = (); }; };
+		CB4E4AAD1BC21731004B9382 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB4E4AAC1BC21731004B9382 /* SignIn.storyboard */; settings = {ASSET_TAGS = (); }; };
+		CB4E4AAF1BC21F33004B9382 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB4E4AAE1BC21F33004B9382 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		CB4E4AB61BC2200B004B9382 /* ZYXSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4E4AB51BC2200B004B9382 /* ZYXSignInViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CB4E4AB91BC229F5004B9382 /* borderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4E4AB81BC229F5004B9382 /* borderedButton.m */; settings = {ASSET_TAGS = (); }; };
 		CBD9E49D1BC0AFF4005689B1 /* ZYXConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD9E49C1BC0AFF4005689B1 /* ZYXConfig.m */; settings = {ASSET_TAGS = (); }; };
 		CBD9E4A01BC0D0C3005689B1 /* ZYXImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD9E49F1BC0D0C3005689B1 /* ZYXImageCache.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -48,10 +58,8 @@
 		CB0980121BBE295D00679768 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CB0980141BBE295D00679768 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB0980151BBE295D00679768 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CB09801B1BBE295D00679768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB09801E1BBE295D00679768 /* MovieAndI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieAndI.xcdatamodel; sourceTree = "<group>"; };
 		CB0980201BBE295D00679768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CB0980231BBE295D00679768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB0980251BBE295D00679768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB09802A1BBE295E00679768 /* MovieAndITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAndITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB09802E1BBE295E00679768 /* MovieAndITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieAndITests.m; sourceTree = "<group>"; };
@@ -59,11 +67,32 @@
 		CB0980351BBE295E00679768 /* MovieAndIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAndIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0980391BBE295E00679768 /* MovieAndIUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieAndIUITests.m; sourceTree = "<group>"; };
 		CB09803B1BBE295E00679768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB0980471BBE378300679768 /* ZYXTMDBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXTMDBConstants.h; path = Networking/ZYXTMDBConstants.h; sourceTree = "<group>"; };
-		CB0980481BBE378300679768 /* ZYXTMDBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXTMDBConstants.m; path = Networking/ZYXTMDBConstants.m; sourceTree = "<group>"; };
 		CB09804B1BBE391000679768 /* ZYXTMDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXTMDBClient.h; path = Networking/ZYXTMDBClient.h; sourceTree = "<group>"; };
 		CB09804C1BBE391000679768 /* ZYXTMDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXTMDBClient.m; path = Networking/ZYXTMDBClient.m; sourceTree = "<group>"; };
 		CB2AF7881BC1F55400075802 /* TMDBClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDBClientTest.m; sourceTree = "<group>"; };
+		CB2ED3DE1BC2980500DAB877 /* StoryBoardUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBoardUtilities.h; sourceTree = "<group>"; };
+		CB2ED3DF1BC2980500DAB877 /* StoryBoardUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryBoardUtilities.m; sourceTree = "<group>"; };
+		CB2ED3E61BC299BC00DAB877 /* ZYXTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXTabBarController.h; path = Controller/ZYXTabBarController.h; sourceTree = "<group>"; };
+		CB2ED3E71BC299BC00DAB877 /* ZYXTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXTabBarController.m; path = Controller/ZYXTabBarController.m; sourceTree = "<group>"; };
+		CB2ED3EA1BC299EE00DAB877 /* TabBarController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
+		CB2ED3EC1BC2A5FB00DAB877 /* ZYXTMDBClient+ZYXConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ZYXTMDBClient+ZYXConvenience.h"; path = "Networking/ZYXTMDBClient+ZYXConvenience.h"; sourceTree = "<group>"; };
+		CB2ED3ED1BC2A5FB00DAB877 /* ZYXTMDBClient+ZYXConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ZYXTMDBClient+ZYXConvenience.m"; path = "Networking/ZYXTMDBClient+ZYXConvenience.m"; sourceTree = "<group>"; };
+		CB2ED3EF1BC2AC3000DAB877 /* ZYXAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXAuthViewController.h; path = Controller/ZYXAuthViewController.h; sourceTree = "<group>"; };
+		CB2ED3F01BC2AC3000DAB877 /* ZYXAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXAuthViewController.m; path = Controller/ZYXAuthViewController.m; sourceTree = "<group>"; };
+		CB2ED3F31BC2C04600DAB877 /* USER+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "USER+CoreDataProperties.h"; path = "Model/USER+CoreDataProperties.h"; sourceTree = "<group>"; };
+		CB2ED3F41BC2C04600DAB877 /* USER+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "USER+CoreDataProperties.m"; path = "Model/USER+CoreDataProperties.m"; sourceTree = "<group>"; };
+		CB2ED3F51BC2C04600DAB877 /* USER.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = USER.h; path = Model/USER.h; sourceTree = "<group>"; };
+		CB2ED3F61BC2C04600DAB877 /* USER.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = USER.m; path = Model/USER.m; sourceTree = "<group>"; };
+		CB2ED3FA1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ZYXTMDBClient+ZYXConstants.h"; path = "Networking/ZYXTMDBClient+ZYXConstants.h"; sourceTree = "<group>"; };
+		CB2ED3FB1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ZYXTMDBClient+ZYXConstants.m"; path = "Networking/ZYXTMDBClient+ZYXConstants.m"; sourceTree = "<group>"; };
+		CB2ED3FD1BC2CA0900DAB877 /* CoreDataStackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataStackManager.h; path = Model/CoreDataStackManager.h; sourceTree = "<group>"; };
+		CB2ED3FE1BC2CA0900DAB877 /* CoreDataStackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataStackManager.m; path = Model/CoreDataStackManager.m; sourceTree = "<group>"; };
+		CB4E4AAC1BC21731004B9382 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		CB4E4AAE1BC21F33004B9382 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CB4E4AB41BC2200B004B9382 /* ZYXSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXSignInViewController.h; path = Controller/ZYXSignInViewController.h; sourceTree = "<group>"; };
+		CB4E4AB51BC2200B004B9382 /* ZYXSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXSignInViewController.m; path = Controller/ZYXSignInViewController.m; sourceTree = "<group>"; };
+		CB4E4AB71BC229F5004B9382 /* borderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = borderedButton.h; path = View/borderedButton.h; sourceTree = "<group>"; };
+		CB4E4AB81BC229F5004B9382 /* borderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = borderedButton.m; path = View/borderedButton.m; sourceTree = "<group>"; };
 		CBD9E49B1BC0AFF4005689B1 /* ZYXConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXConfig.h; path = Networking/ZYXConfig.h; sourceTree = "<group>"; };
 		CBD9E49C1BC0AFF4005689B1 /* ZYXConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXConfig.m; path = Networking/ZYXConfig.m; sourceTree = "<group>"; };
 		CBD9E49E1BC0D0C3005689B1 /* ZYXImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXImageCache.h; path = Networking/ZYXImageCache.h; sourceTree = "<group>"; };
@@ -131,13 +160,14 @@
 			children = (
 				CB0980141BBE295D00679768 /* AppDelegate.h */,
 				CB0980151BBE295D00679768 /* AppDelegate.m */,
-				CB09801A1BBE295D00679768 /* Main.storyboard */,
 				CB0980201BBE295D00679768 /* Assets.xcassets */,
-				CB0980221BBE295D00679768 /* LaunchScreen.storyboard */,
-				CB0980251BBE295D00679768 /* Info.plist */,
-				CB09801D1BBE295D00679768 /* MovieAndI.xcdatamodeld */,
+				CB2ED3F21BC2BF9000DAB877 /* Model */,
+				CB2ED3E11BC2980A00DAB877 /* Utilities */,
+				CB4E4AAB1BC216FC004B9382 /* Storyboard */,
 				CB0980111BBE295D00679768 /* Supporting Files */,
 				CB09804A1BBE378A00679768 /* Networking */,
+				CB4E4AB31BC21FDE004B9382 /* Controller */,
+				CB4E4ABA1BC22A16004B9382 /* View */,
 			);
 			path = MovieAndI;
 			sourceTree = "<group>";
@@ -145,6 +175,7 @@
 		CB0980111BBE295D00679768 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB0980251BBE295D00679768 /* Info.plist */,
 				CB0980121BBE295D00679768 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -172,16 +203,113 @@
 		CB09804A1BBE378A00679768 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				CB0980471BBE378300679768 /* ZYXTMDBConstants.h */,
-				CB0980481BBE378300679768 /* ZYXTMDBConstants.m */,
 				CB09804B1BBE391000679768 /* ZYXTMDBClient.h */,
 				CB09804C1BBE391000679768 /* ZYXTMDBClient.m */,
 				CBD9E49B1BC0AFF4005689B1 /* ZYXConfig.h */,
 				CBD9E49C1BC0AFF4005689B1 /* ZYXConfig.m */,
 				CBD9E49E1BC0D0C3005689B1 /* ZYXImageCache.h */,
 				CBD9E49F1BC0D0C3005689B1 /* ZYXImageCache.m */,
+				CB2ED3EC1BC2A5FB00DAB877 /* ZYXTMDBClient+ZYXConvenience.h */,
+				CB2ED3ED1BC2A5FB00DAB877 /* ZYXTMDBClient+ZYXConvenience.m */,
+				CB2ED3FA1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.h */,
+				CB2ED3FB1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.m */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		CB2ED3E11BC2980A00DAB877 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CB2ED3E21BC2983C00DAB877 /* Utils */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		CB2ED3E21BC2983C00DAB877 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CB2ED3DE1BC2980500DAB877 /* StoryBoardUtilities.h */,
+				CB2ED3DF1BC2980500DAB877 /* StoryBoardUtilities.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		CB2ED3E51BC2997700DAB877 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CB4E4AB41BC2200B004B9382 /* ZYXSignInViewController.h */,
+				CB4E4AB51BC2200B004B9382 /* ZYXSignInViewController.m */,
+				CB2ED3EF1BC2AC3000DAB877 /* ZYXAuthViewController.h */,
+				CB2ED3F01BC2AC3000DAB877 /* ZYXAuthViewController.m */,
+			);
+			name = SignIn;
+			sourceTree = "<group>";
+		};
+		CB2ED3E91BC299C000DAB877 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CB2ED3E61BC299BC00DAB877 /* ZYXTabBarController.h */,
+				CB2ED3E71BC299BC00DAB877 /* ZYXTabBarController.m */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
+		CB2ED3F21BC2BF9000DAB877 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB2ED4001BC2CA1800DAB877 /* CoreData */,
+				CB2ED3F91BC2C1E000DAB877 /* User */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CB2ED3F91BC2C1E000DAB877 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CB2ED3F31BC2C04600DAB877 /* USER+CoreDataProperties.h */,
+				CB2ED3F41BC2C04600DAB877 /* USER+CoreDataProperties.m */,
+				CB2ED3F51BC2C04600DAB877 /* USER.h */,
+				CB2ED3F61BC2C04600DAB877 /* USER.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		CB2ED4001BC2CA1800DAB877 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CB09801D1BBE295D00679768 /* MovieAndI.xcdatamodeld */,
+				CB2ED3FD1BC2CA0900DAB877 /* CoreDataStackManager.h */,
+				CB2ED3FE1BC2CA0900DAB877 /* CoreDataStackManager.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		CB4E4AAB1BC216FC004B9382 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CB4E4AAE1BC21F33004B9382 /* LaunchScreen.storyboard */,
+				CB4E4AAC1BC21731004B9382 /* SignIn.storyboard */,
+				CB2ED3EA1BC299EE00DAB877 /* TabBarController.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		CB4E4AB31BC21FDE004B9382 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB2ED3E51BC2997700DAB877 /* SignIn */,
+				CB2ED3E91BC299C000DAB877 /* TabBar */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		CB4E4ABA1BC22A16004B9382 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB4E4AB71BC229F5004B9382 /* borderedButton.h */,
+				CB4E4AB81BC229F5004B9382 /* borderedButton.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		E608AF923E6BA9A699CE74E0 /* Pods */ = {
@@ -301,9 +429,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB0980241BBE295D00679768 /* LaunchScreen.storyboard in Resources */,
+				CB4E4AAF1BC21F33004B9382 /* LaunchScreen.storyboard in Resources */,
+				CB4E4AAD1BC21731004B9382 /* SignIn.storyboard in Resources */,
+				CB2ED3EB1BC299EE00DAB877 /* TabBarController.storyboard in Resources */,
 				CB0980211BBE295D00679768 /* Assets.xcassets in Resources */,
-				CB09801C1BBE295D00679768 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,13 +490,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB4E4AB91BC229F5004B9382 /* borderedButton.m in Sources */,
+				CB2ED3EE1BC2A5FB00DAB877 /* ZYXTMDBClient+ZYXConvenience.m in Sources */,
 				CBD9E4A01BC0D0C3005689B1 /* ZYXImageCache.m in Sources */,
-				CB0980491BBE378300679768 /* ZYXTMDBConstants.m in Sources */,
 				CB0980161BBE295D00679768 /* AppDelegate.m in Sources */,
 				CB09804D1BBE391000679768 /* ZYXTMDBClient.m in Sources */,
+				CB2ED3FF1BC2CA0900DAB877 /* CoreDataStackManager.m in Sources */,
+				CB2ED3E01BC2980500DAB877 /* StoryBoardUtilities.m in Sources */,
+				CB2ED3F11BC2AC3000DAB877 /* ZYXAuthViewController.m in Sources */,
+				CB2ED3F71BC2C04600DAB877 /* USER+CoreDataProperties.m in Sources */,
 				CB09801F1BBE295D00679768 /* MovieAndI.xcdatamodeld in Sources */,
+				CB2ED3F81BC2C04600DAB877 /* USER.m in Sources */,
+				CB2ED3FC1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.m in Sources */,
 				CB0980131BBE295D00679768 /* main.m in Sources */,
+				CB4E4AB61BC2200B004B9382 /* ZYXSignInViewController.m in Sources */,
 				CBD9E49D1BC0AFF4005689B1 /* ZYXConfig.m in Sources */,
+				CB2ED3E81BC299BC00DAB877 /* ZYXTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,25 +540,6 @@
 			targetProxy = CB0980361BBE295E00679768 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		CB09801A1BBE295D00679768 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB09801B1BBE295D00679768 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CB0980221BBE295D00679768 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB0980231BBE295D00679768 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CB09803C1BBE295E00679768 /* Debug */ = {

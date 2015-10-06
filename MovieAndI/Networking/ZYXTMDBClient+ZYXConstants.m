@@ -1,12 +1,12 @@
 //
-//  ZYXTMDBConstants.m
+//  ZYXTMDBClient+ZYXConstants.m
 //  MovieAndI
 //
-//  Created by zhu yongxuan on 15/10/2.
+//  Created by zhu yongxuan on 15/10/5.
 //  Copyright © 2015年 zhu yongxuan. All rights reserved.
 //
 
-#import "ZYXTMDBConstants.h"
+#import "ZYXTMDBClient+ZYXConstants.h"
 
 #pragma mark - Constants
 
@@ -17,7 +17,7 @@ NSString * const kConstantsAuthorizationURL = @"https://www.themoviedb.org/authe
 NSString * const kConstantsBaseImageURL = @"http://image.tmdb.org/t/p/";
 
 #pragma mark - Account Methods
-NSString *const kMethodsAccount = @"configuration";
+NSString *const kMethodsAccount = @"account";
 NSString *const kMethodsAccountIDList = @"account/{id}/lists";
 NSString *const kMethodsAccountIDFavoriteTV = @"account/{id}/favorite/tv";
 NSString *const kMethodsAccountIDFavoriteMovie = @"account/{id}/favorite/movies";
@@ -155,26 +155,28 @@ NSString *const kJSONBodyKeysMediaType = @"media_type";
 NSString *const kJSONBodyKeysMediaID = @"media_id";
 NSString *const kJSONBodyKeysFavorite = @"favorite";
 NSString *const kJSONBodyKeysWatchlist = @"watchlist";
-//
-//#pragma mark - JSONResponseKeys
-//
-//NSString *const kJSONResponseKeysStatusMessage = @"status_message";
-//NSString *const kJSONResponseKeysStatusCode = @"status_code";
-//NSString *const kJSONResponseKeysRequestToken = @"request_token";
-//NSString *const kJSONResponseKeysSessionID = @"session_id";
-//
-//NSString *const kJSONResponseKeysUserID = @"id";
-//
-//NSString *const kJSONResponseKeysConfigBaseImageURL = @"secure_base_url";
-//NSString *const kJSONResponseKeysConfigImages = @"images";
-//NSString *const kJSONResponseKeysConfigPosterSizes = @"poster_sizes";
-//NSString *const kJSONResponseKeysConfigProfileSizes = @"profile_sizes";
-//
-//NSString *const kJSONResponseKeysMovieID = @"id";
-//NSString *const kJSONResponseKeysMovieTitle = @"title";
-//NSString *const kJSONResponseKeysMoviePosterPath = @"poster_path";
-//NSString *const kJSONResponseKeysMovieReleaseDate = @"release_date";
-//NSString *const kJSONResponseKeysMovieReleaseYear = @"release_year";
-//NSString *const kJSONResponseKeysMovieResults = @"results";
 
+#pragma mark - JSONResponseKeys
 
+NSString *const kJSONResponseKeysStatusMessage = @"status_message";
+NSString *const kJSONResponseKeysStatusCode = @"status_code";
+NSString *const kJSONResponseKeysRequestToken = @"request_token";
+NSString *const kJSONResponseKeysSessionID = @"session_id";
+
+NSString *const kJSONResponseKeysUserID = @"id";
+
+NSString *const kJSONResponseKeysConfigBaseImageURL = @"secure_base_url";
+NSString *const kJSONResponseKeysConfigImages = @"images";
+NSString *const kJSONResponseKeysConfigPosterSizes = @"poster_sizes";
+NSString *const kJSONResponseKeysConfigProfileSizes = @"profile_sizes";
+
+NSString *const kJSONResponseKeysMovieID = @"id";
+NSString *const kJSONResponseKeysMovieTitle = @"title";
+NSString *const kJSONResponseKeysMoviePosterPath = @"poster_path";
+NSString *const kJSONResponseKeysMovieReleaseDate = @"release_date";
+NSString *const kJSONResponseKeysMovieReleaseYear = @"release_year";
+NSString *const kJSONResponseKeysMovieResults = @"results";
+
+@implementation ZYXTMDBClient (ZYXConstants)
+
+@end
