@@ -14,8 +14,17 @@
 {
     if ((self = [super init])) {
         self.session = [NSURLSession sharedSession];
+        self.client = [[Client alloc] init];
     }
     return self;
+}
+
+- (ZYXConfig *)config
+{
+    if (!_config) {
+        _config = [[ZYXConfig alloc] init];
+    }
+    return _config;
 }
 
 #pragma mark - Shared Instance
@@ -42,17 +51,6 @@
     return sharedDateFormatter;
 }
 
-+ (ZYXImageCache *)imageCache
-{
-    static ZYXImageCache *imageCache = nil;
-    static dispatch_once_t once_t;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        imageCache = [[ZYXImageCache alloc]init];
-    });
-    return imageCache;
-}
-
 #pragma mark - Hepler method for updating config
 
 - (void)updateConfigWithCompletionHandler:(void(^)(bool didSuccess, NSError *error))completionHandler
@@ -63,7 +61,7 @@
         if (error) {
             completionHandler(NO, error);
         } else {
-            ZYXConfig *newConfig = [[ZYXConfig alloc]initWithParameters:resullt];
+            ZYXConfig *newConfig = [[ZYXConfig alloc]initWithParameters:(NSDictionary *)resullt];
             if (newConfig) {
                 self.config = newConfig;
                 completionHandler(YES, nil);
@@ -78,7 +76,7 @@
 
 #pragma mark - Get Task
 
-- (NSURLSessionDataTask *)taskForGetMethod:(NSString *)method parameters:(NSDictionary *)parameters completionHandler:(void(^)(id resullt, NSError *error))completionHandler
+- (NSURLSessionDataTask *)taskForGetMethod:(NSString *)method parameters:(NSDictionary *)parameters completionHandler:(void(^)(NSData * _Nullable data, NSError *error))completionHandler
 {
     NSMutableString *subtitutedMethod = method;
     NSMutableDictionary *mutableDictionary = parameters? [parameters mutableCopy]: [NSMutableDictionary new];
@@ -112,7 +110,7 @@
             if (statusCode >= 200 && statusCode <= 299) {
                 if (data) {
                     NSLog(@"Step 3 - taskForResource's completionHandler is invoked.");
-                    [ZYXTMDBClient parseJSON:data WithCompletionHandler:completionHandler];
+                    completionHandler(data, nil);
                 } else {
                     NSLog(@"Your request dit return any data!");
                 }
@@ -129,33 +127,11 @@
     return task;
 };
 
-#pragma mark - Task method for image
-
-- (NSURLSessionTask *)taskForImageWithSize:(NSString *)size filePath:(NSString *)filePath completionHandler:(void(^)(NSData *imageData, NSError *error))completionHandler
-{
-    NSURL *baseURL= [NSURL URLWithString:self.config.secureBaseImageURL];
-    NSURL *url = [[baseURL URLByAppendingPathComponent:size] URLByAppendingPathComponent:filePath];
-    
-    NSLog(@"%@", url);
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLSessionTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error) {
-            NSError *newError = [ZYXTMDBClient errorForData:data withResponse:response withError:error];
-            completionHandler(nil, newError);
-        } else {
-            completionHandler(data, nil);
-        }
-    }];
-    [task resume];
-    return task;
-}
-
 #pragma mark - Post Task
 
-- (NSURLSessionDataTask *)taskForPostMethod:(NSString *)method parameters:(NSDictionary *)parameters JSONBody:(NSDictionary *)jsonBody completionHandler:(void(^)(id resullt, NSError *error))completionHandler
+- (NSURLSessionDataTask *)taskForPostMethod:(NSString *)method parameters:(NSDictionary *)parameters JSONBody:(NSDictionary *)jsonBody completionHandler:(void(^)(NSData * _Nullable data, NSError *error))completionHandler
 {
-    NSMutableString *subtitutedMethod;
+    NSMutableString *subtitutedMethod = method;
     NSMutableDictionary *mutableDictionary = parameters? [parameters mutableCopy]: [NSMutableDictionary new];
     mutableDictionary[kParameterKeysApiKey] = kConstantsApiKey;
     
@@ -168,7 +144,12 @@
         }
     }
     
-    NSString *urlString = [[kConstantsBaseUrlSSL stringByAppendingString:subtitutedMethod] stringByAppendingString:[ZYXTMDBClient escapedParameters:mutableDictionary]];
+    NSMutableString *urlString = [kConstantsBaseUrlSSL mutableCopy];
+    if (subtitutedMethod) {
+        [urlString appendString:subtitutedMethod];
+    }
+    NSString *escapedString = [ZYXTMDBClient escapedParameters:mutableDictionary];
+    [urlString appendString:escapedString];
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
@@ -191,7 +172,7 @@
             if (statusCode >= 200 && statusCode <= 299) {
                 if (data) {
                     NSLog(@"Step 3 - taskForResource's completionHandler is invoked.");
-                    [ZYXTMDBClient parseJSON:data WithCompletionHandler:completionHandler];
+                    completionHandler(data, nil);
                 } else {
                     NSLog(@"Your request dit return any data!");
                 }
@@ -249,7 +230,7 @@
 
 // 将一个原始的json返回一个有用的对象
 
-+ (void)parseJSON:(NSData *)data WithCompletionHandler:(void(^)(id result, NSError *error))completionHandler
++ (void)ObjectFromParseJSON:(NSData *)data WithCompletionHandler:(void(^)(id result, NSError *error))completionHandler
 {
     NSError *error = nil;
     id parsedResult = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
@@ -259,6 +240,14 @@
         NSLog(@"Step 4 - parseJSONWithCompletionHandler is invoked.");
         completionHandler(parsedResult, nil);
     }
+}
+
+// 将一个原始的json返回一个NSString
+
++ (void)StringFromParseJSON:(NSData *)data WithCompletionHandler:(void(^)(NSString *result))completionHandler
+{
+    NSString *parsedResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    completionHandler(parsedResult);
 }
 
 // 将一个参数的dictionary转变为用于url的string
@@ -280,6 +269,15 @@
         return returnString;
     }
 }
+
+- (NSURL *)getImageUrl:(NSString *)urlString withSize:(NSString *)size
+{
+    NSURL *baseURL = [NSURL URLWithString:self.config.secureBaseImageURL];
+    NSURL *url = [[baseURL URLByAppendingPathComponent:size]URLByAppendingPathComponent:urlString];
+    return url;
+}
+
+
 
 @end
 

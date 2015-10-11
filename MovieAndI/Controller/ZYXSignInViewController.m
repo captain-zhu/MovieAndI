@@ -54,6 +54,7 @@
         if (success) {
             [self completeLogin];
         } else {
+            [self configureUI];
             [self displayError:errerString];
         }
     }];
@@ -101,6 +102,7 @@
     self.titleLabel.font = [UIFont fontWithName:@"AvenirNext-Medium" size:24];
     self.titleLabel.textColor = [UIColor whiteColor];
     
+    
     //确定debugLabel的UI
     self.debugLabel.font = [UIFont fontWithName:@"AvenirNext-Medium" size:20];
     self.debugLabel.textColor = [UIColor whiteColor];
@@ -113,6 +115,12 @@
     self.loginButton.backgroundColor = [UIColor colorWithRed:0.0
                                                        green:0.502 blue:0.839 alpha:1.0];
     [self.loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.loginButton.layer.cornerRadius = 8.0;
+    self.loginButton.layer.shadowRadius = 2;
+    self.loginButton.layer.shadowOpacity = 0.5;
+    self.loginButton.layer.shadowOffset = CGSizeZero;
+    self.loginButton.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.loginButton.bounds cornerRadius:8.0].CGPath;
+    self.loginButton.layer.shadowColor = [UIColor blackColor].CGColor;
 
 }
 

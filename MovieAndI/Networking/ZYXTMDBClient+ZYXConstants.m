@@ -148,6 +148,8 @@ NSString *const kParameterKeysApiKey = @"api_key";
 NSString *const kParameterKeysSessionID = @"session_id";
 NSString *const kParameterKeysRequestToken = @"request_token";
 NSString *const kParameterKeysQuery = @"query";
+NSString *const kParameterKeysPage = @"page";
+NSString *const kParameterKeysLauguage = @"language";
 
 #pragma mark  - JSONBodyKeys
 
@@ -170,12 +172,6 @@ NSString *const kJSONResponseKeysConfigImages = @"images";
 NSString *const kJSONResponseKeysConfigPosterSizes = @"poster_sizes";
 NSString *const kJSONResponseKeysConfigProfileSizes = @"profile_sizes";
 
-NSString *const kJSONResponseKeysMovieID = @"id";
-NSString *const kJSONResponseKeysMovieTitle = @"title";
-NSString *const kJSONResponseKeysMoviePosterPath = @"poster_path";
-NSString *const kJSONResponseKeysMovieReleaseDate = @"release_date";
-NSString *const kJSONResponseKeysMovieReleaseYear = @"release_year";
-NSString *const kJSONResponseKeysMovieResults = @"results";
 
 @implementation ZYXTMDBClient (ZYXConstants)
 

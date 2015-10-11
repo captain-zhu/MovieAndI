@@ -7,34 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZYXImageCache.h"
 #import "ZYXConfig.h"
-#import "USER.h"
+#import "Client.h"
 
 @interface ZYXTMDBClient : NSObject
 
 @property (nonatomic, strong) NSURLSession *session;
-@property (nonatomic, strong) NSString *sessionID;
-@property (nonatomic, strong) USER *user;
+@property (nonatomic, strong) Client *client;
 @property (nonatomic, strong) ZYXConfig *config;
 
 #pragma mark - Shared Instance
 + (ZYXTMDBClient *)sharedInstance;
 + (NSDateFormatter *)sharedDateFormatter;
-+ (ZYXImageCache *)imageCache;
 
 #pragma mark - update config helper method
 - (void)updateConfigWithCompletionHandler:(void(^)(bool didSuccess, NSError *error))completionHandler;
 
 #pragma mark - Task Methods
-- (NSURLSessionDataTask *)taskForGetMethod:(NSString *)method parameters:(NSDictionary *)parameters completionHandler:(void(^)(id resullt, NSError *error))completionHandler;
-- (NSURLSessionTask *)taskForImageWithSize:(NSString *)size filePath:(NSString *)filePath completionHandler:(void(^)(NSData *imageData, NSError *error))completionHandler;
+- (NSURLSessionDataTask *)taskForGetMethod:(NSString *)method parameters:(NSDictionary *)parameters completionHandler:(void(^)(NSData * _Nullable data, NSError *error))completionHandler;
+//- (NSURLSessionTask *)taskForImageWithSize:(NSString *)size filePath:(NSString *)filePath completionHandler:(void(^)(NSData *imageData, NSError *error))completionHandler;
+- (NSURLSessionDataTask *)taskForPostMethod:(NSString *)method parameters:(NSDictionary *)parameters JSONBody:(NSDictionary *)jsonBody completionHandler:(void(^)(NSData * _Nullable data, NSError *error))completionHandler;
 
 #pragma mark - Helper Methods
 + (NSString *)subtituteKeyInMethod:(NSString *)method key:(NSString *)key value:(NSString *)value;
 + (NSError *)errorForData:(NSData *)data withResponse:(NSURLResponse *)response withError:(NSError *)error;
-+ (void)parseJSON:(NSData *)data WithCompletionHandler:(void(^)(id result, NSError *error))completionHandler;
++ (void)ObjectFromParseJSON:(NSData *)data WithCompletionHandler:(void(^)(id result, NSError *error))completionHandler;
++ (void)StringFromParseJSON:(NSData *)data WithCompletionHandler:(void(^)(NSString *result))completionHandler;
 + (NSString *)escapedParameters:(NSDictionary *)parameters;
+- (NSURL *)getImageUrl:(NSString *)urlString withSize:(NSString *)size;
 
 @end
 

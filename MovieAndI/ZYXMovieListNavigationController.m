@@ -1,26 +1,22 @@
 //
-//  ZYXTabBarController.m
+//  ZYXMovieListNavigationController.m
 //  MovieAndI
 //
-//  Created by zhu yongxuan on 15/10/5.
+//  Created by zhu yongxuan on 15/10/7.
 //  Copyright © 2015年 zhu yongxuan. All rights reserved.
 //
 
-#import "ZYXTabBarController.h"
-#import "ZYXDiscoverPageViewController.h"
-#import "StoryBoardUtilities.h"
+#import "ZYXMovieListNavigationController.h"
 
-@interface ZYXTabBarController ()
+@interface ZYXMovieListNavigationController ()
 
 @end
 
-@implementation ZYXTabBarController
+@implementation ZYXMovieListNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ZYXDiscoverPageViewController *pageViewController = (ZYXDiscoverPageViewController *)[StoryBoardUtilities viewControllerForStoryboardName:@"DiscoverPage" class:[ZYXDiscoverPageViewController class]];
-    self.viewControllers = @[pageViewController];
-    NSLog(@"tab bar viewDidLoad");
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

@@ -150,6 +150,8 @@ extern NSString *const kParameterKeysApiKey;
 extern NSString *const kParameterKeysSessionID;
 extern NSString *const kParameterKeysRequestToken;
 extern NSString *const kParameterKeysQuery;
+extern NSString *const kParameterKeysPage;
+extern NSString *const kParameterKeysLauguage;
 
 #pragma mark  - JSONBodyKeys
 
@@ -157,6 +159,7 @@ extern NSString *const kJSONBodyKeysMediaType;
 extern NSString *const kJSONBodyKeysMediaID;
 extern NSString *const kJSONBodyKeysFavorite;
 extern NSString *const kJSONBodyKeysWatchlist;
+
 
 #pragma mark - JSONResponseKeys
 
@@ -171,13 +174,6 @@ extern NSString *const kJSONResponseKeysConfigBaseImageURL;
 extern NSString *const kJSONResponseKeysConfigImages;
 extern NSString *const kJSONResponseKeysConfigPosterSizes;
 extern NSString *const kJSONResponseKeysConfigProfileSizes;
-
-extern NSString *const kJSONResponseKeysMovieID;
-extern NSString *const kJSONResponseKeysMovieTitle;
-extern NSString *const kJSONResponseKeysMoviePosterPath;
-extern NSString *const kJSONResponseKeysMovieReleaseDate;
-extern NSString *const kJSONResponseKeysMovieReleaseYear;
-extern NSString *const kJSONResponseKeysMovieResults;
 
 @interface ZYXTMDBClient (ZYXConstants)
 

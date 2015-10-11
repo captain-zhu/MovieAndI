@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="App" representedClassName="App" syncable="YES">
+        <attribute name="sessionID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="USER" inverseName="app" inverseEntity="USER" syncable="YES"/>
+    </entity>
+    <entity name="FavoriateMovies" syncable="YES">
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="favoriteList" inverseEntity="Movie" syncable="YES"/>
+    </entity>
+    <entity name="Movie" syncable="YES">
+        <relationship name="favoriteList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriateMovies" inverseName="movies" inverseEntity="FavoriateMovies" syncable="YES"/>
+        <relationship name="ratedlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RatedMovies" inverseName="movies" inverseEntity="RatedMovies" syncable="YES"/>
+        <relationship name="watchlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WatchlistMovies" inverseName="movies" inverseEntity="WatchlistMovies" syncable="YES"/>
+    </entity>
+    <entity name="RatedMovies" syncable="YES">
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="ratedlist" inverseEntity="Movie" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="USER" inverseName="ratedlist" inverseEntity="USER" syncable="YES"/>
+    </entity>
     <entity name="USER" representedClassName="USER" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="App" inverseName="user" inverseEntity="App" syncable="YES"/>
+        <relationship name="favoritelist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriateMovies" syncable="YES"/>
+        <relationship name="ratedlist" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="RatedMovies" inverseName="owner" inverseEntity="RatedMovies" syncable="YES"/>
+        <relationship name="watchlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WatchlistMovies" inverseName="owner" inverseEntity="WatchlistMovies" syncable="YES"/>
+    </entity>
+    <entity name="WatchlistMovies" syncable="YES">
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="watchlist" inverseEntity="Movie" syncable="YES"/>
+        <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="USER" inverseName="watchlist" inverseEntity="USER" syncable="YES"/>
     </entity>
     <elements>
-        <element name="USER" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="USER" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="App" positionX="-63" positionY="9" width="128" height="75"/>
+        <element name="FavoriateMovies" positionX="-45" positionY="27" width="128" height="60"/>
+        <element name="Movie" positionX="-36" positionY="36" width="128" height="90"/>
+        <element name="RatedMovies" positionX="-18" positionY="45" width="128" height="75"/>
+        <element name="WatchlistMovies" positionX="0" positionY="54" width="128" height="75"/>
     </elements>
 </model>

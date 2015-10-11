@@ -9,7 +9,7 @@
 #import "ZYXTMDBClient+ZYXConvenience.h"
 #import "ZYXAuthViewController.h"
 #import "StoryBoardUtilities.h"
-#import "CoreDataStackManager.h"
+#import "User.h"
 
 @implementation ZYXTMDBClient (ZYXConvenience)
 
@@ -23,11 +23,13 @@
                 if (success) {
                     [self getSessionwithToken:requestToken completionHandler:^(BOOL success, NSString *sessionID, NSString *errorString) {
                         if (success) {
-                            self.sessionID = sessionID;
+                            self.client.sessionID = sessionID;
                             
-                            [self getUserInfoWithCompletionHandler:^(BOOL success, USER *user, NSString *errorString) {
+                            [self getUserInfoWithSessionID:sessionID CompletionHandler:^(BOOL success, User *user, NSString *errorString) {
                                 if (success) {
-                                    self.user = user;
+                                    self.client.user = user;
+                                    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.client];
+                                    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"client"];
                                 }
                                 completionHandler(success, errorString);
                             }];
@@ -50,16 +52,22 @@
 {
     NSDictionary *parameters = [[NSDictionary alloc]init];
     
-    [self taskForGetMethod:kMethodsAuthenticationTokenNew parameters:parameters completionHandler:^(id resullt, NSError *error) {
+    [self taskForGetMethod:kMethodsAuthenticationTokenNew parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
         if (error) {
             completionHandler(NO, nil, @"Login Failed.(Request Token)");
         } else {
-            NSString *requestToken = (NSString *)(NSDictionary *)resullt[kJSONResponseKeysRequestToken];
-            if (requestToken) {
-                completionHandler(YES, requestToken, nil);
-            } else {
-                completionHandler(NO, nil, @"Login Failed.(Request Token)");
-            }
+            [ZYXTMDBClient ObjectFromParseJSON:data WithCompletionHandler:^(id result, NSError *error) {
+                if (error) {
+                    completionHandler(NO, nil, @"Login Failed.(Request Token)");
+                } else {
+                    NSString *requestToken = (NSString *)(NSDictionary *)result[kJSONResponseKeysRequestToken];
+                    if (requestToken) {
+                        completionHandler(YES, requestToken, nil);
+                    } else {
+                        completionHandler(NO, nil, @"Login Failed.(Request Token)");
+                    }
+                }
+            }];
         }
     }];
 }
@@ -89,34 +97,150 @@
 {
     NSDictionary *parameters = @{kParameterKeysRequestToken : token};
     
-    [self taskForGetMethod:kMethodsAuthenticationSessionNew parameters:parameters completionHandler:^(id resullt, NSError *error) {
+    [self taskForGetMethod:kMethodsAuthenticationSessionNew parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
         if (error) {
             completionHandler(NO, nil, @"Login failed.(Session ID)");
         } else {
-            NSString *session = (NSString *)(NSDictionary *)resullt[kJSONResponseKeysSessionID];
-            if (session) {
-                completionHandler(YES, session, nil);
+            [ZYXTMDBClient ObjectFromParseJSON:data WithCompletionHandler:^(id result, NSError *error) {
+                if (error) {
+                    completionHandler(NO, nil, @"Login failed.(Session ID)");
+                } else {
+                    NSString *session = (NSString *)(NSDictionary *)result[kJSONResponseKeysSessionID];
+                    if (session) {
+                        completionHandler(YES, session, nil);
+                    } else {
+                        completionHandler(NO, nil, @"Login failed.(Session ID)");
+                    }
+                }
+            }];
+        }
+        
+    }];
+}
+
+// 获得userID
+- (void)getUserInfoWithSessionID:(NSString *)sessionID CompletionHandler:(void(^)(BOOL success,User *user, NSString *errorString))completionHandler
+{
+    NSDictionary *parameters = @{kParameterKeysSessionID : sessionID};
+    
+    [self taskForGetMethod:kMethodsAccount parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            completionHandler(NO, nil, @"Can't parse dictionary to USER");
+        } else {
+            [ZYXTMDBClient StringFromParseJSON:data WithCompletionHandler:^(NSString *result) {
+                NSError *error = nil;
+                User *user = [[User alloc] initWithString:result error:&error];
+                completionHandler(YES, user, nil);
+            }];
+        }
+    }];
+}
+
+
+#pragma mark - Get Convenience Methods
+
+- (void)getFavoriteMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
+{
+    NSString *pageString = [NSString stringWithFormat:@"%d", page];
+    NSDictionary *parameters = @{kParameterKeysSessionID: self.client.sessionID,
+                                 kParameterKeysPage: pageString,
+                                 kURLKeysID: self.client.user.id};
+    [self taskForGetMethod:kMethodsAccountIDFavoriteMovie parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get favorite movie list");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            List *list = [[List alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get favorite movie list(Parse Data)");
+                completionHandler(nil, error);
             } else {
-                completionHandler(NO, nil, @"Login failed.(Session ID)");
+                completionHandler(list, nil);
             }
         }
     }];
 }
 
-// 获得userID
-- (void)getUserInfoWithCompletionHandler:(void(^)(BOOL success,USER *user, NSString *errorString))completionHandler
+- (void)getPopularMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
 {
-    NSDictionary *parameters = @{kParameterKeysSessionID : [ZYXTMDBClient sharedInstance].sessionID};
-    
-    [self taskForGetMethod:kMethodsAccount parameters:parameters completionHandler:^(id resullt, NSError *error) {
+    NSString *pageString = [NSString stringWithFormat:@"%d", page];
+    NSDictionary *parameters = @{kParameterKeysPage: pageString};
+    [self taskForGetMethod:kMethodsPopular parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
         if (error) {
-            completionHandler(NO, nil, @"Get user Info Failed");
+            NSLog(@"Failed get popular movie list");
+            completionHandler(nil, error);
         } else {
-            USER *parsedUser = [[USER alloc] initWithDictionary:(NSDictionary *)resullt insertIntoManagedObjectContext:[CoreDataStackManager sharedManager].managedObjectContext];
-            if (parsedUser) {
-                completionHandler(YES, parsedUser, nil);
+            NSError *error = nil;
+            List *list = [[List alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get popular movie list(Parse Data)");
+                completionHandler(nil, error);
             } else {
-                completionHandler(NO, nil, @"Can't parse dictionary to USER");
+                completionHandler(list, nil);
+            }
+        }
+    }];
+}
+
+- (void)getNowplayingMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
+{
+    NSString *pageString = [NSString stringWithFormat:@"%d", page];
+    NSDictionary *parameters = @{kParameterKeysPage: pageString};
+    [self taskForGetMethod:kMethodsNowPlaying parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get now_playing movie list");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            List *list = [[List alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get now_playing movie list(Parse Data)");
+                completionHandler(nil, error);
+            } else {
+                completionHandler(list, nil);
+            }
+        }
+    }];
+}
+
+- (void)getUpcomingMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
+{
+    NSString *pageString = [NSString stringWithFormat:@"%d", page];
+    NSDictionary *parameters = @{kParameterKeysPage: pageString};
+    [self taskForGetMethod:kMethodsUpComing parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get up_coming movie list");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            List *list = [[List alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get up_coming movie list(Parse Data)");
+                completionHandler(nil, error);
+            } else {
+                completionHandler(list, nil);
+            }
+        }
+    }];
+}
+
+- (void)getTopRatedMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
+{
+    NSString *pageString = [NSString stringWithFormat:@"%d", page];
+    NSDictionary *parameters = @{kParameterKeysPage: pageString};
+    [self taskForGetMethod:kMethodsTopRated parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get top rated movie list");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            List *list = [[List alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get top rated movie list(Parse Data)");
+                completionHandler(nil, error);
+            } else {
+                completionHandler(list, nil);
             }
         }
     }];

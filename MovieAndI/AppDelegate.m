@@ -8,7 +8,10 @@
 
 #import "AppDelegate.h"
 #import "ZYXTMDBClient.h"
-#import "CoreDataStackManager.h"
+#import "StoryBoardUtilities.h"
+#import "ZYXTabBarController.h"
+#import "ZYXSignInViewController.h"
+#import "Client.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +19,19 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"client"]) {
+        ZYXSignInViewController *signInViewController = (ZYXSignInViewController *)[StoryBoardUtilities viewControllerForStoryboardName:@"SignIn" class:[ZYXSignInViewController class]];
+        self.window.rootViewController = signInViewController;
+    } else {
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"client"];
+        Client *client = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        [ZYXTMDBClient sharedInstance].client = client;
+        ZYXTabBarController *tabBarController = (ZYXTabBarController *)[StoryBoardUtilities viewControllerForStoryboardName:@"TabBarController" class:[ZYXTabBarController class]];
+        self.window.rootViewController = tabBarController;
+    }
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -42,7 +56,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-    [[CoreDataStackManager sharedManager] saveContext];
 }
 
 @end
