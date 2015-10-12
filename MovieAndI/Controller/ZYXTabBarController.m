@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    ZYXMovieListNavigationController *pageViewNavigationController = (ZYXMovieListNavigationController *)[StoryBoardUtilities viewControllerForStoryboardName:@"DiscoverPage" class:[ZYXMovieListNavigationController class]];
     ZYXDiscoverPageViewController *pageViewController = (ZYXDiscoverPageViewController *)[StoryBoardUtilities viewControllerForStoryboardName:@"DiscoverPage" class:[ZYXDiscoverPageViewController class]];
     self.viewControllers = @[pageViewController];
     NSLog(@"tab bar viewDidLoad");

@@ -10,9 +10,10 @@
 #import "ZYXMovieListViewController.h"
 #import "StoryBoardUtilities.h"
 
-@interface ZYXDiscoverPageViewController ()<UIPageViewControllerDataSource>
+@interface ZYXDiscoverPageViewController ()
 
 @property (nonatomic, strong) NSArray *pages;
+
 
 @end
 
@@ -22,47 +23,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.pages = [ZYXPages allPages];
-    ZYXMovieListViewController *movieListViewController = (ZYXMovieListViewController *)[StoryBoardUtilities viewControllerForStoryboardName:@"MovieList" class:[ZYXMovieListViewController class]];
-    movieListViewController.page = self.pages[0];
     
-    [self setViewControllers:@[movieListViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    self.dataSource = self;
+    NSMutableArray *controllerArray = [NSMutableArray array];
+    
+    for (int i=0; i < [self.pages count]; i++) {
+        ZYXMovieListViewController *movieListViewController = (ZYXMovieListViewController *)[StoryBoardUtilities viewControllerForStoryboardName:@"MovieList" class:[ZYXMovieListViewController class]];
+        movieListViewController.page = self.pages[i];
+        movieListViewController.title = movieListViewController.page.title;
+        [controllerArray addObject:movieListViewController];
+    }
+    
+    NSDictionary *parameters = @{CAPSPageMenuOptionMenuItemSeparatorWidth: @(CGRectGetWidth(self.view.bounds)/[self.pages count]),
+                                 CAPSPageMenuOptionSelectionIndicatorHeight:@(3),
+                                 CAPSPageMenuOptionUseMenuLikeSegmentedControl: @(NO),
+                                 CAPSPageMenuOptionScrollMenuBackgroundColor:[UIColor orangeColor],
+                                 CAPSPageMenuOptionSelectionIndicatorColor:[UIColor whiteColor],
+                                 CAPSPageMenuOptionSelectedMenuItemLabelColor:[UIColor whiteColor],
+                                 CAPSPageMenuOptionUnselectedMenuItemLabelColor:[UIColor grayColor],
+                                 CAPSPageMenuOptionMenuHeight:@(30),
+                                 CAPSPageMenuOptionMenuMargin:@(0),
+                                 CAPSPageMenuOptionMenuItemWidth:@(CGRectGetWidth(self.view.bounds)/[self.pages count])
+                                 };
+    self.pagemenu = [[CAPSPageMenu alloc] initWithViewControllers:controllerArray frame:CGRectMake(0.0, 20.0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) options:parameters];
     NSLog(@"page view did load");
+    [self.view addSubview:self.pagemenu.view];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - UIPageViewControllerDataSource
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
-{
-    ZYXMovieListViewController *oldViewController = (ZYXMovieListViewController *)viewController;
-    int newIndex = oldViewController.page.index + 1;
-    if (newIndex > ([self.pages count] - 1)) {
-        return  nil;
-    }
-    
-    ZYXMovieListViewController *movieListViewController = (ZYXMovieListViewController *)[StoryBoardUtilities viewControllerForStoryboardName:@"MovieList" class:[ZYXMovieListViewController class]];
-    movieListViewController.page = self.pages[newIndex];
-    
-    return movieListViewController;
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
-{
-    ZYXMovieListViewController *oldViewController = (ZYXMovieListViewController *)viewController;
-    int newIndex = oldViewController.page.index - 1;
-    if (newIndex < 0) {
-        return  nil;
-    }
-    
-    ZYXMovieListViewController *movieListViewController = (ZYXMovieListViewController *)[StoryBoardUtilities viewControllerForStoryboardName:@"MovieList" class:[ZYXMovieListViewController class]];
-    movieListViewController.page = self.pages[newIndex];
-    
-    return movieListViewController;
 }
 
 

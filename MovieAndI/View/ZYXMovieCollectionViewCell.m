@@ -7,12 +7,15 @@
 //
 
 #import "ZYXMovieCollectionViewCell.h"
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
+#import "Color+Hex.h"
 
 @interface ZYXMovieCollectionViewCell()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backdropImageViewCenterConstraint;
 @property (nonatomic, assign) CGFloat parallaxOffset;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *posterImageViewTopConstraint;
+@property (weak, nonatomic) IBOutlet UIView *topCoverView;
+@property (weak, nonatomic) IBOutlet UIView *posterImageGradientView;
 
 @end
 
@@ -65,11 +68,20 @@
     self.selfScoreLabel.alpha = delta;
     self.topScoreLabel.alpha = delta;
     self.posterImageView.alpha = delta;
+    self.starRating.alpha = delta;
+    self.releseDateLabel.alpha =  delta;
+    if (delta > 0.95) {
+        self.topCoverView.alpha = delta;
+    } else {
+        self.topCoverView.alpha = 0;
+    }
     
     CGFloat posterImageDistance = 140.0f;
     CGFloat moveDistance = posterImageDistance * delta;
-    self.posterImageViewTopConstraint.constant = -130 + moveDistance;
-    
+    self.posterImageViewTopConstraint.constant = -145 + moveDistance;
+    CAGradientLayer *layer = [[CAGradientLayer alloc] init];
+    layer.colors = [NSArray arrayWithObjects:(id)[[UIColor colorFromHexString:@"#c8c8c8ff"] CGColor], (id)[[UIColor colorFromHexString:@"#aaaaaaff"] CGColor], nil];
+    [self.posterImageGradientView.layer insertSublayer:layer atIndex:0];
     
 }
 

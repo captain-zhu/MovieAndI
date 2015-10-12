@@ -144,6 +144,7 @@
     NSString *pageString = [NSString stringWithFormat:@"%d", page];
     NSDictionary *parameters = @{kParameterKeysSessionID: self.client.sessionID,
                                  kParameterKeysPage: pageString,
+                                 kParameterKeysLauguage : @"zh",
                                  kURLKeysID: self.client.user.id};
     [self taskForGetMethod:kMethodsAccountIDFavoriteMovie parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
         if (error) {
@@ -165,7 +166,8 @@
 - (void)getPopularMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
 {
     NSString *pageString = [NSString stringWithFormat:@"%d", page];
-    NSDictionary *parameters = @{kParameterKeysPage: pageString};
+    NSDictionary *parameters = @{kParameterKeysPage: pageString,
+                                 kParameterKeysLauguage : @"zh"};
     [self taskForGetMethod:kMethodsPopular parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
         if (error) {
             NSLog(@"Failed get popular movie list");
@@ -186,7 +188,8 @@
 - (void)getNowplayingMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
 {
     NSString *pageString = [NSString stringWithFormat:@"%d", page];
-    NSDictionary *parameters = @{kParameterKeysPage: pageString};
+    NSDictionary *parameters = @{kParameterKeysPage: pageString,
+                                 kParameterKeysLauguage : @"zh"};
     [self taskForGetMethod:kMethodsNowPlaying parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
         if (error) {
             NSLog(@"Failed get now_playing movie list");
@@ -207,7 +210,8 @@
 - (void)getUpcomingMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
 {
     NSString *pageString = [NSString stringWithFormat:@"%d", page];
-    NSDictionary *parameters = @{kParameterKeysPage: pageString};
+    NSDictionary *parameters = @{kParameterKeysPage: pageString,
+                                 kParameterKeysLauguage : @"zh"};
     [self taskForGetMethod:kMethodsUpComing parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
         if (error) {
             NSLog(@"Failed get up_coming movie list");
@@ -228,7 +232,8 @@
 - (void)getTopRatedMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
 {
     NSString *pageString = [NSString stringWithFormat:@"%d", page];
-    NSDictionary *parameters = @{kParameterKeysPage: pageString};
+    NSDictionary *parameters = @{kParameterKeysPage: pageString,
+                                 kParameterKeysLauguage : @"zh",};
     [self taskForGetMethod:kMethodsTopRated parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
         if (error) {
             NSLog(@"Failed get top rated movie list");

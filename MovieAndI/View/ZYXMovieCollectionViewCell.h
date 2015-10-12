@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <HCSStarRatingView/HCSStarRatingView.h>
 #import "Movie.h"
 
 @interface ZYXMovieCollectionViewCell : UICollectionViewCell
@@ -19,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *topScoreLabel;
 @property (weak, nonatomic) IBOutlet UIView *coverView;
 @property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
+@property (weak, nonatomic) IBOutlet HCSStarRatingView *starRating;
+@property (weak, nonatomic) IBOutlet UILabel *releseDateLabel;
 
 - (void)updateParallaxOffset:(CGRect )bounds;
 

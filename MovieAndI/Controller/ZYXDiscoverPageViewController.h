@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CAPSPageMenu.h"
 
-@interface ZYXDiscoverPageViewController : UIPageViewController
+@interface ZYXDiscoverPageViewController : UIViewController
 
-
+@property (nonatomic) CAPSPageMenu *pagemenu;
 
 @end

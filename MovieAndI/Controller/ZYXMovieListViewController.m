@@ -7,19 +7,22 @@
 //
 
 #import "ZYXMovieListViewController.h"
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 #import "ZYXTMDBClient.h"
 #import "List.h"
 #import "Movie.h"
 #import "ZYXMovieCollectionViewCell.h"
 #import "ZYXCollectionViewLayout.h"
+#import "ZYXMovieListRefreshView.h"
 
 static NSString * const reuseIdentifier = @"MovieListCell";
 
-@interface ZYXMovieListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, ZYXNetworkLoadingViewControllerDelegate>
+@interface ZYXMovieListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, ZYXNetworkLoadingViewControllerDelegate, ZYXMovieListRefreshViewDelegate>
 
 @property (nonatomic, strong) ZYXNetworkLoadingViewController *networkingLoadingViewController;
 @property (nonatomic, assign) int requestPage;
+@property (nonatomic, assign) CGFloat refreshViewHeight;
+@property (nonatomic, strong) ZYXMovieListRefreshView *refreshView;
 
 @end
 
@@ -50,7 +53,21 @@ static NSString * const reuseIdentifier = @"MovieListCell";
     NSLog(@"Collection view did load");
     
     [self setupCollectionView];
-    [self requestMovies];
+    [self requestMoviesWithCompletionHandler:^(List *list, NSError *error) {
+        if (error) {
+            self.networkingLoadingContainerView.alpha = 1;
+            [self.networkingLoadingViewController showErrorView];
+        } else {
+            if (list.totalResults == 0) {
+                self.networkingLoadingContainerView.alpha = 1;
+                [self.networkingLoadingViewController showNoContentView];
+            } else {
+                self.networkingLoadingContainerView.alpha = 0;
+                self.list = list;
+                [self.collectionView reloadData];
+            }
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +84,11 @@ static NSString * const reuseIdentifier = @"MovieListCell";
         _requestPage = 1;
     }
     return _requestPage;
+}
+
+- (CGFloat)refreshViewHeight
+{
+    return 200.0f;
 }
 
 #pragma mark - 
@@ -90,29 +112,19 @@ static NSString * const reuseIdentifier = @"MovieListCell";
     }
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
-//    self.collectionView.delegate = self;
-//    self.collectionView.dataSource = self;
-//    [self.collectionView registerClass:[ZYXMovieCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+
+    self.refreshView = [[ZYXMovieListRefreshView alloc] initWithFrame:CGRectMake(0, -self.refreshViewHeight, CGRectGetWidth(self.view.bounds), self.refreshViewHeight) ScrollView:self.collectionView];
+    self.refreshView.delegate = self;
+    [self.refreshView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.collectionView insertSubview:self.refreshView atIndex:0];
 }
 
 #pragma mark -
 #pragma mark Networking Request Methods
 
-- (void)requestMovies
+- (void)requestMoviesWithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
 {
-    [self.page getMoviesWithIndex:self.page.index page:self.requestPage withCompletionHandler:^(List *list, NSError *error) {
-        if (error) {
-            [self.networkingLoadingViewController showErrorView];
-        } else {
-            if ([list.totalResults integerValue] == 0) {
-                [self.networkingLoadingViewController showNoContentView];
-            } else {
-                [self hideLoadingView];
-                self.list = list;
-                [self.collectionView reloadData];
-            }
-        }
-    }];
+    [self.page getMoviesWithIndex:self.page.index page:self.requestPage withCompletionHandler:completionHandler];
 }
 
 #pragma mark - 
@@ -120,26 +132,21 @@ static NSString * const reuseIdentifier = @"MovieListCell";
 
 - (void)retryRequest
 {
-    [self requestMovies];
-}
-
-#pragma mark - 
-#pragma mark ZYXNetworkLoadingView Methods
-
-- (void)hideLoadingView
-{
-//    __weak __block ZYXMovieListViewController *weakSelf = self;
-//    [UIView transitionWithView:self.view duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^(void) {
-//        
-//        [weakSelf.networkingLoadingContainerView removeFromSuperview];
-//        
-//    } completion:^(BOOL finished) {
-//        
-//        [weakSelf.networkingLoadingViewController removeFromParentViewController];
-//        weakSelf.networkingLoadingViewController = nil;
-//        
-//    }];
-    self.networkingLoadingContainerView.alpha = 0;
+    [self requestMoviesWithCompletionHandler:^(List *list, NSError *error) {
+        if (error) {
+            self.networkingLoadingContainerView.alpha = 1;
+            [self.networkingLoadingViewController showErrorView];
+        } else {
+            if (list.totalResults == 0) {
+                self.networkingLoadingContainerView.alpha = 1;
+                [self.networkingLoadingViewController showNoContentView];
+            } else {
+                self.networkingLoadingContainerView.alpha = 0;
+                self.list = list;
+                [self.collectionView reloadData];
+            }
+        }
+    }];
 }
 
 #pragma mark -
@@ -165,16 +172,27 @@ static NSString * const reuseIdentifier = @"MovieListCell";
                 NSURL *backdropURL = [[ZYXTMDBClient sharedInstance] getImageUrl:movie.backdropPath withSize:[ZYXTMDBClient sharedInstance].config.backdropSizes[1]];
                 NSURL *posterURL = [[ZYXTMDBClient sharedInstance] getImageUrl:movie.posterPath withSize:[ZYXTMDBClient sharedInstance].config.posterSizes[1]];
                 cell.titelLabel.text = movie.title;
-                cell.originalTitleLabel.text = movie.originalTitle;
-                cell.selfScoreLabel.text = [NSString stringWithFormat:@"%0.1f", movie.voteAverage];
-                [cell.backdropImageView sd_setImageWithURL:backdropURL placeholderImage:[UIImage imageNamed:@"popcorn-film-party"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                    if (error) {
-                        NSLog(@"backdrop image error");
-                    } else {
-                        NSLog(@"backdrop image success");
-                    }
-                    NSLog([imageURL absoluteString]);
-                }];
+                if (movie.originalTitle && [movie.originalTitle length] != 0) {
+                    cell.originalTitleLabel.text = movie.originalTitle;
+                } else {
+                    cell.originalTitleLabel.hidden = YES;
+                }
+                
+                if (movie.voteAverage) {
+                    cell.selfScoreLabel.text = [NSString stringWithFormat:@"%0.1f", movie.voteAverage];
+                    cell.starRating.value = movie.voteAverage;
+                } else {
+                    cell.selfScoreLabel.hidden = YES;
+                    cell.starRating.hidden = YES;
+                    cell.topScoreLabel.hidden = YES;
+                }
+                
+                if (movie.releaseDate && [movie.releaseDate length] != 0) {
+                    cell.releseDateLabel.text = movie.releaseDate;
+                } else {
+                    cell.releseDateLabel.hidden = YES;
+                }
+                [cell.backdropImageView sd_setImageWithURL:backdropURL placeholderImage:[UIImage imageNamed:@"popcorn-film-party"]];
                 [cell.posterImageView sd_setImageWithURL:posterURL placeholderImage:[UIImage imageNamed:@"popcorn-film-party"]];
             }
         } else {
@@ -202,6 +220,7 @@ static NSString * const reuseIdentifier = @"MovieListCell";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    [self.refreshView scrollViewDidScroll:scrollView];
     NSArray *cells = self.collectionView.visibleCells;
     CGRect bounds = self.collectionView.bounds;
     for (UICollectionViewCell *cell in cells) {
@@ -210,6 +229,42 @@ static NSString * const reuseIdentifier = @"MovieListCell";
             [theCell updateParallaxOffset:bounds];
         }
     }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    [self.refreshView scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
+    NSArray *cells = self.collectionView.visibleCells;
+    CGRect bounds = self.collectionView.bounds;
+    for (UICollectionViewCell *cell in cells) {
+        if ([cell isKindOfClass:[ZYXMovieCollectionViewCell class]]) {
+            ZYXMovieCollectionViewCell *theCell = (ZYXMovieCollectionViewCell *)cell;
+            [theCell updateParallaxOffset:bounds];
+        }
+    }
+}
+
+#pragma mark - 
+#pragma mark RefreshViewDelegate
+
+- (void)refreshViewDidRefresh
+{
+    [self requestMoviesWithCompletionHandler:^(List *list, NSError *error) {
+        if (error) {
+            self.networkingLoadingContainerView.alpha = 1;
+            [self.networkingLoadingViewController showErrorView];
+        } else {
+            if (list.totalResults == 0) {
+                self.networkingLoadingContainerView.alpha = 1;
+                [self.networkingLoadingViewController showNoContentView];
+            } else {
+                self.networkingLoadingContainerView.alpha = 0;
+                [self.refreshView endRefresh];
+                self.list = list;
+                [self.collectionView reloadData];
+            }
+        }
+    }];
 }
 
 

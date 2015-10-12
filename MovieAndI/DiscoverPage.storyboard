@@ -4,32 +4,42 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Discover Page View Controller-->
-        <scene sceneID="I8g-RV-ZdX">
-            <objects>
-                <pageViewController storyboardIdentifier="ZYXDiscoverPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="XsK-df-ymC" customClass="ZYXDiscoverPageViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="1I5-DP-PgS"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ymR-v4-oDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="203" y="387"/>
-        </scene>
-        <!--Navigation Controller-->
+        <!--Movie List Navigation Controller-->
         <scene sceneID="C9D-ia-get">
             <objects>
-                <navigationController id="a3d-76-INH" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ZYXMovieListNavigationController" id="a3d-76-INH" customClass="ZYXMovieListNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uiM-YG-3hM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </navigationBar>
                     <connections>
-                        <segue destination="XsK-df-ymC" kind="relationship" relationship="rootViewController" id="Fh0-2d-ErM"/>
+                        <segue destination="30s-0I-fy1" kind="relationship" relationship="rootViewController" id="Ibk-YI-Tln"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTt-P3-YKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-490" y="387"/>
+        </scene>
+        <!--Discover Page View Controller-->
+        <scene sceneID="HFx-bI-xrx">
+            <objects>
+                <viewController storyboardIdentifier="ZYXDiscoverPageViewController" id="30s-0I-fy1" customClass="ZYXDiscoverPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6PO-7J-A4W"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZQr-h5-Ur9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0pY-nU-9UN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z4K-Lf-idE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xUl-dU-bSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="214" y="387"/>
         </scene>
     </scenes>
 </document>
