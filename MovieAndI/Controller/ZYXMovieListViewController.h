@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZYXPages.h"
+#import "ZYXDiscoverPages.h"
 #import "ZYXNetworkLoadingViewController.h"
 
 @interface ZYXMovieListViewController : UIViewController
 
-@property (nonatomic, strong) ZYXPages *page;
-@property (nonatomic, strong) List *list;
+@property (nonatomic, strong) ZYXDiscoverPages *page;
+@property (nonatomic, strong) NSArray *movies;
 
 @property (nonatomic, weak) IBOutlet UIView *networkingLoadingContainerView;
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) ZYXNetworkLoadingViewController *networkingLoadingViewController;
 
 @end

@@ -119,7 +119,7 @@
     self.loginButton.layer.shadowRadius = 2;
     self.loginButton.layer.shadowOpacity = 0.5;
     self.loginButton.layer.shadowOffset = CGSizeZero;
-    self.loginButton.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.loginButton.bounds cornerRadius:8.0].CGPath;
+//    self.loginButton.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.loginButton.bounds cornerRadius:8.0].CGPath;
     self.loginButton.layer.shadowColor = [UIColor blackColor].CGColor;
 
 }

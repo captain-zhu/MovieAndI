@@ -47,6 +47,7 @@ NSString *const kMethodsSearchMulti = @"search/multi";
 
 #pragma mark - Movies Methods
 NSString *const kMethodsMovieID = @"movie/{id}";
+NSString *const kMethodsMovieIDAccountStatus = @"movie/{id}/account_states";
 NSString *const kMethodsAlternativeTitle = @"movie/{id}/alternative_titles";
 NSString *const kMethodsIDCredits = @"movie/{id}/credits";
 NSString *const kMethodsIDImage = @"movie/{id}/images";
@@ -157,6 +158,7 @@ NSString *const kJSONBodyKeysMediaType = @"media_type";
 NSString *const kJSONBodyKeysMediaID = @"media_id";
 NSString *const kJSONBodyKeysFavorite = @"favorite";
 NSString *const kJSONBodyKeysWatchlist = @"watchlist";
+NSString *const kJSONBodyKeysValue = @"value";
 
 #pragma mark - JSONResponseKeys
 

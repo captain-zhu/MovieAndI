@@ -48,6 +48,7 @@ extern NSString *const kMethodsSearchMulti;
 
 #pragma mark - Movies Methods
 extern NSString *const kMethodsMovieID;
+extern NSString *const kMethodsMovieIDAccountStatus;
 extern NSString *const kMethodsAlternativeTitle;
 extern NSString *const kMethodsIDCredits;
 extern NSString *const kMethodsIDImage;
@@ -159,6 +160,7 @@ extern NSString *const kJSONBodyKeysMediaType;
 extern NSString *const kJSONBodyKeysMediaID;
 extern NSString *const kJSONBodyKeysFavorite;
 extern NSString *const kJSONBodyKeysWatchlist;
+extern NSString *const kJSONBodyKeysValue;
 
 
 #pragma mark - JSONResponseKeys

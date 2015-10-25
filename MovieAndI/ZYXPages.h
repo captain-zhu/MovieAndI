@@ -15,8 +15,5 @@
 @property (nonatomic, strong) NSString *title;
 
 - (instancetype)initWithIndex:(int)index text:(NSString *)text;
-- (void)getMoviesWithIndex:(int)index page:(int)page withCompletionHandler:(void(^)(List *list, NSError *error))completionHandler;
-
-+ (NSArray *)allPages;
 
 @end

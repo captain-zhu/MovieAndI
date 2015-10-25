@@ -24,6 +24,6 @@
 @property (nonatomic, assign) NSInteger voteCount;
 @property (nonatomic, strong) NSString<Optional> *originalLanguage;
 @property (nonatomic, strong) NSString<Optional> *overview;
-@property (nonatomic, assign) int popularity;
+@property (nonatomic, assign) NSNumber<Optional> *popularity;
 
 @end

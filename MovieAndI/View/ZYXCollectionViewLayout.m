@@ -65,7 +65,7 @@ CGFloat const featuredHeight = 280;
 }
 
 - (NSInteger)numberOfItems
-{;
+{
     return [self.collectionView numberOfItemsInSection:0];
 }
 

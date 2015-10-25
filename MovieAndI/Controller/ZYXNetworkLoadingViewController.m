@@ -37,6 +37,7 @@
 - (void)showLoadingView
 {
     self.errorView.hidden = YES;
+    self.noContentView.hidden = YES;
     
     self.activityIndicatorView.color = [UIColor colorWithRed:232.0/255.0f green:35.0/255.0f blue:111.0/255.0f alpha:1.0];
 }

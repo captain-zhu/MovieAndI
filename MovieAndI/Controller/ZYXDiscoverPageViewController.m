@@ -9,8 +9,10 @@
 #import "ZYXDiscoverPageViewController.h"
 #import "ZYXMovieListViewController.h"
 #import "StoryBoardUtilities.h"
+#import "ZYXDiscoverPages.h"
+#import "Color+Hex.h"
 
-@interface ZYXDiscoverPageViewController ()
+@interface ZYXDiscoverPageViewController ()<CAPSPageMenuDelegate>
 
 @property (nonatomic, strong) NSArray *pages;
 
@@ -22,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.pages = [ZYXPages allPages];
+    self.pages = [ZYXDiscoverPages allPages];
     
     NSMutableArray *controllerArray = [NSMutableArray array];
     
@@ -36,17 +38,18 @@
     NSDictionary *parameters = @{CAPSPageMenuOptionMenuItemSeparatorWidth: @(CGRectGetWidth(self.view.bounds)/[self.pages count]),
                                  CAPSPageMenuOptionSelectionIndicatorHeight:@(3),
                                  CAPSPageMenuOptionUseMenuLikeSegmentedControl: @(NO),
-                                 CAPSPageMenuOptionScrollMenuBackgroundColor:[UIColor orangeColor],
-                                 CAPSPageMenuOptionSelectionIndicatorColor:[UIColor whiteColor],
+                                 CAPSPageMenuOptionViewBackgroundColor:[UIColor colorWithRed:255.0f/255 green:127.0f/255 blue:0.0f alpha:1],
+                                 CAPSPageMenuOptionScrollMenuBackgroundColor:[UIColor clearColor],                                CAPSPageMenuOptionSelectionIndicatorColor:[UIColor whiteColor],
                                  CAPSPageMenuOptionSelectedMenuItemLabelColor:[UIColor whiteColor],
-                                 CAPSPageMenuOptionUnselectedMenuItemLabelColor:[UIColor grayColor],
+                                 CAPSPageMenuOptionUnselectedMenuItemLabelColor:[UIColor whiteColor],
                                  CAPSPageMenuOptionMenuHeight:@(30),
                                  CAPSPageMenuOptionMenuMargin:@(0),
-                                 CAPSPageMenuOptionMenuItemWidth:@(CGRectGetWidth(self.view.bounds)/[self.pages count])
+                                 CAPSPageMenuOptionMenuItemWidth:@(CGRectGetWidth(self.view.bounds)/[self.pages count]),
                                  };
     self.pagemenu = [[CAPSPageMenu alloc] initWithViewControllers:controllerArray frame:CGRectMake(0.0, 20.0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) options:parameters];
     NSLog(@"page view did load");
     [self.view addSubview:self.pagemenu.view];
+    self.pagemenu.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +57,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -
+#pragma mark CAPSPageMenuDelegate
 
+- (void)didMoveToPage:(UIViewController *)controller index:(NSInteger)index
+{
+    if ([controller isKindOfClass:[ZYXMovieListViewController class]]) {
+        NSLog(@"It's movieList View Controller");
+        ZYXMovieListViewController *movieListViewController = (ZYXMovieListViewController *)controller;
+        if (!movieListViewController.movies) {
+            [movieListViewController.networkingLoadingViewController showLoadingView];
+        }
+    }
+}
 
 
 

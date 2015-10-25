@@ -157,6 +157,66 @@
                 NSLog(@"Failed get favorite movie list(Parse Data)");
                 completionHandler(nil, error);
             } else {
+                NSLog(@"Favorite movies");
+                for (Movie *movie in list.movies) {
+                    NSLog(movie.title);
+                }
+                completionHandler(list, nil);
+            }
+        }
+    }];
+}
+
+- (void)getRatedMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
+{
+    NSString *pageString = [NSString stringWithFormat:@"%d", page];
+    NSDictionary *parameters = @{kParameterKeysSessionID: self.client.sessionID,
+                                 kParameterKeysPage: pageString,
+                                 kParameterKeysLauguage : @"zh",
+                                 kURLKeysID: self.client.user.id};
+    [self taskForGetMethod:kMethodsAccountIDRatedMovies parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get rated movie list");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            List *list = [[List alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get rated movie list(Parse Data)");
+                completionHandler(nil, error);
+            } else {
+                NSLog(@"Rated movies");
+                for (Movie *movie in list.movies) {
+                    NSLog(movie.title);
+                }
+                completionHandler(list, nil);
+            }
+        }
+    }];
+}
+
+- (void)getWatchlistMoviesForPage:(int)page WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
+{
+    NSString *pageString = [NSString stringWithFormat:@"%d", page];
+    NSDictionary *parameters = @{kParameterKeysSessionID: self.client.sessionID,
+                                 kParameterKeysPage: pageString,
+                                 kParameterKeysLauguage : @"zh",
+                                 kURLKeysID: self.client.user.id};
+    [self taskForGetMethod:kMethodsAccountIDWatchlistMovies parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get rated movie list");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            List *list = [[List alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get rated movie list(Parse Data)");
+                completionHandler(nil, error);
+            } else {
+                NSLog(@"Watchlist movies");
+                for (Movie *movie in list.movies) {
+                    NSLog(movie.title);
+                }
                 completionHandler(list, nil);
             }
         }
@@ -251,12 +311,210 @@
     }];
 }
 
+- (NSURLSessionDataTask *)getMoviesForSearchString:(NSString*)searchString WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
+{
+    NSDictionary *parameters = @{kParameterKeysQuery: searchString,
+                                 kParameterKeysLauguage : @"zh",};
+    NSURLSessionDataTask *task;
+    task = [self taskForGetMethod:kMethodsSearchMovie parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get searched movies list");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            List *list = [[List alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get searched movies list(Parse Data)");
+                completionHandler(nil, error);
+            } else {
+                completionHandler(list, nil);
+            }
+        }
+    }];
+    return task;
+}
 
+- (void)getMovieDetailsWithID:(NSString *)id WithCompletionHandler:(void(^)(MovieDetails *movieDetails, NSError *error))completionHandler
+{
+    NSDictionary *parameters = @{kParameterKeysLauguage : @"zh",
+                                 kURLKeysID: id};
+    [self taskForGetMethod:kMethodsMovieID parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get movie detail");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            MovieDetails *movieDetails = [[MovieDetails alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get movie detail(Parse Data)");
+                completionHandler(nil, error);
+            } else {
+                completionHandler(movieDetails, nil);
+            }
+        }
+    }];
+}
 
+- (void)getSimilarMoviesWithID:(NSString *)id WithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
+{
+    NSDictionary *parameters = @{kURLKeysID : id,
+                                 kParameterKeysLauguage : @"zh"};
+    [self taskForGetMethod:kMethodsIDSimilarMovies parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get similar movie list");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            List *list = [[List alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get similar movie list(Parse Data)");
+                completionHandler(nil, error);
+            } else {
+                completionHandler(list, nil);
+            }
+        }
+    }];
+}
 
+- (void)getMovieReviewsWithID:(NSString *)id WithCompletionHandler:(void(^)(MovieReviews *movieReviews, NSError *error))completionHandler
+{
+    NSDictionary *parameters = @{kURLKeysID : id};
+    [self taskForGetMethod:kMethodsIDReviews parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get movie reviews list");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            MovieReviews *movieReviews = [[MovieReviews alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get movie reviews list(Parse Data)");
+                completionHandler(nil, error);
+            } else {
+                completionHandler(movieReviews, nil);
+            }
+        }
+    }];
+}
 
+- (void)getMovieStatusWithID:(NSString *)id WithCompletionHandler:(void(^)(ZYXMovieStatus *movieStatus, NSError *error))completionHandler
+{
+    NSDictionary *parameters = @{kURLKeysID : id,
+                                 kParameterKeysSessionID: self.client.sessionID};
+    [self taskForGetMethod:kMethodsMovieIDAccountStatus parameters:parameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed get movie status list");
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            ZYXMovieStatus *movieStatus = [[ZYXMovieStatus alloc] initWithData:data error:&error];
+            if (error) {
+                NSLog(@"Failed get movie Status list(Parse Data)");
+                completionHandler(nil, error);
+            } else {
+                NSLog(@"movieStatus: %ld %d %d %d", (long)movieStatus.id, movieStatus.favorite, movieStatus.rated, movieStatus.watchlist);
+                completionHandler(movieStatus, nil);
+            }
+        }
+    }];
+}
 
+#pragma mark -
+#pragma mark Post Convenience Methods
 
+- (void)postRatingValue:(NSString *)value forMovieWithID:(NSString *)id withCompletionHandler:(void(^)(BOOL succuss))completionHandler
+{
+    NSDictionary *parameters = @{kURLKeysID : id,
+                                 kParameterKeysSessionID: self.client.sessionID};
+    NSDictionary *JSONParameters = @{kJSONBodyKeysValue: value};
+    [self taskForPostMethod:kMethodsIDRating parameters:parameters JSONBody:JSONParameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed to post movie rating value");
+            completionHandler(NO);
+        } else {
+            NSError *error = nil;
+            NSDictionary *parsedResult = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            if (error) {
+                completionHandler(NO);
+            } else {
+                if ([parsedResult[@"status_message"] isEqualToString:@"Success"]) {
+                    completionHandler(YES);
+                } else {
+                    completionHandler(NO);
+                }
+            }
+        }
+    }];
+}
+
+- (void)postFavorite:(BOOL)favorite forMovieWithID:(NSString *)id withCompletionHandler:(void(^)(BOOL succuss))completionHandler
+{
+    NSDictionary *parameters = @{kURLKeysID : id,
+                                 kParameterKeysSessionID: self.client.sessionID};
+    NSDictionary *JSONParameters;
+    if (favorite) {
+        JSONParameters = @{kJSONBodyKeysMediaType: @"movie",
+                                         kJSONBodyKeysMediaID: id,
+                                         kJSONBodyKeysFavorite: @"true"};
+    } else {
+        JSONParameters = @{kJSONBodyKeysMediaType: @"movie",
+                                         kJSONBodyKeysMediaID: id,
+                                         kJSONBodyKeysFavorite: @"false"};
+    }
+    
+    [self taskForPostMethod:kMethodsAccountIDFavorite parameters:parameters JSONBody:JSONParameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed to post movie rating value");
+            completionHandler(NO);
+        } else {
+            NSError *error = nil;
+            NSDictionary *parsedResult = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            if (error) {
+                completionHandler(NO);
+            } else {
+                if ([parsedResult[@"status_message"] isEqualToString:@"The item/record was updated successfully"]) {
+                    completionHandler(YES);
+                } else {
+                    completionHandler(NO);
+                }
+            }
+        }
+    }];
+}
+
+- (void)postWatchlist:(BOOL)watchlist forMovieWithID:(NSString *)id withCompletionHandler:(void(^)(BOOL succuss))completionHandler
+{
+    NSDictionary *parameters = @{kURLKeysID : id,
+                                 kParameterKeysSessionID: self.client.sessionID};
+    NSDictionary *JSONParameters;
+    if (watchlist) {
+        JSONParameters = @{kJSONBodyKeysMediaType: @"movie",
+                           kJSONBodyKeysMediaID: id,
+                           kJSONBodyKeysFavorite: @"true"};
+    } else {
+        JSONParameters = @{kJSONBodyKeysMediaType: @"movie",
+                           kJSONBodyKeysMediaID: id,
+                           kJSONBodyKeysFavorite: @"false"};
+    }
+    
+    [self taskForPostMethod:kMethodsAccountIDFavorite parameters:parameters JSONBody:JSONParameters completionHandler:^(NSData * _Nullable data, NSError *error) {
+        if (error) {
+            NSLog(@"Failed to post movie rating value");
+            completionHandler(NO);
+        } else {
+            NSError *error = nil;
+            NSDictionary *parsedResult = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+            if (error) {
+                completionHandler(NO);
+            } else {
+                if ([parsedResult[@"status_message"] isEqualToString:@"The item/record was updated successfully"]) {
+                    completionHandler(YES);
+                } else {
+                    completionHandler(NO);
+                }
+            }
+        }
+    }];
+}
 
 
 

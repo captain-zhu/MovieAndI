@@ -36,6 +36,15 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.posterImageGradientView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.posterImageGradientView.layer.shadowOffset = CGSizeZero;
+    self.posterImageGradientView.layer.opacity = 0.5;
+    self.posterImageGradientView.layer.shadowRadius = 2;
+}
+
 - (void)setParallaxOffset:(CGFloat)parallaxOffset
 {
     self.backdropImageViewCenterConstraint.constant = parallaxOffset;
@@ -45,6 +54,7 @@
 {
     [super prepareForReuse];
     [self.backdropImageView sd_cancelCurrentImageLoad];
+    [self.posterImageView sd_cancelCurrentImageLoad];
 }
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
@@ -57,7 +67,7 @@
     CGFloat delta = 1 - ((CGFloat)(featureHeight - CGRectGetHeight(self.frame)) / (featureHeight - standardHeight));
     
     CGFloat miniAlpha = 0;
-    CGFloat maxAlpha = 0.5;
+    CGFloat maxAlpha = 0.7;
     
     self.coverView.alpha = maxAlpha - (delta * (maxAlpha - miniAlpha));
     

@@ -16,7 +16,12 @@
 		CB09802F1BBE295E00679768 /* MovieAndITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB09802E1BBE295E00679768 /* MovieAndITests.m */; };
 		CB09803A1BBE295E00679768 /* MovieAndIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0980391BBE295E00679768 /* MovieAndIUITests.m */; };
 		CB09804D1BBE391000679768 /* ZYXTMDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CB09804C1BBE391000679768 /* ZYXTMDBClient.m */; settings = {ASSET_TAGS = (); }; };
+		CB0B47E11BCDE59600909474 /* MenuItems.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0B47E01BCDE59600909474 /* MenuItems.m */; settings = {ASSET_TAGS = (); }; };
+		CB0B47E51BCDECF400909474 /* ZYXMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0B47E41BCDECF400909474 /* ZYXMenuCell.m */; settings = {ASSET_TAGS = (); }; };
+		CB0B47E91BCDF1F000909474 /* ZYXContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0B47E81BCDF1F000909474 /* ZYXContainerViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CB0B47ED1BCE450400909474 /* ZYXMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0B47EC1BCE450400909474 /* ZYXMenuButton.m */; settings = {ASSET_TAGS = (); }; };
 		CB0DF06F1BC95DDD00273861 /* ZYXConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0DF06E1BC95DDD00273861 /* ZYXConfig.m */; settings = {ASSET_TAGS = (); }; };
+		CB1F6DDE1BD47909007F23C5 /* ZYXRatingCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1F6DDD1BD47909007F23C5 /* ZYXRatingCircle.m */; settings = {ASSET_TAGS = (); }; };
 		CB2AF7891BC1F55400075802 /* TMDBClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2AF7881BC1F55400075802 /* TMDBClientTest.m */; settings = {ASSET_TAGS = (); }; };
 		CB2ED3E01BC2980500DAB877 /* StoryBoardUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3DF1BC2980500DAB877 /* StoryBoardUtilities.m */; settings = {ASSET_TAGS = (); }; };
 		CB2ED3E81BC299BC00DAB877 /* ZYXTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3E71BC299BC00DAB877 /* ZYXTabBarController.m */; settings = {ASSET_TAGS = (); }; };
@@ -24,6 +29,8 @@
 		CB2ED3F11BC2AC3000DAB877 /* ZYXAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3F01BC2AC3000DAB877 /* ZYXAuthViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CB2ED3FC1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2ED3FB1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.m */; settings = {ASSET_TAGS = (); }; };
 		CB3468941BCA9C3D002F2955 /* MovieList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB3468931BCA9C3D002F2955 /* MovieList.storyboard */; settings = {ASSET_TAGS = (); }; };
+		CB48DEDE1BDB14BA00D090B9 /* ZYXMovieStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CB48DEDD1BDB14BA00D090B9 /* ZYXMovieStatus.m */; settings = {ASSET_TAGS = (); }; };
+		CB48DEE01BDB186100D090B9 /* ZYXClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CB48DEDF1BDB186100D090B9 /* ZYXClientTest.m */; settings = {ASSET_TAGS = (); }; };
 		CB4E4AAD1BC21731004B9382 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB4E4AAC1BC21731004B9382 /* SignIn.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CB4E4AAF1BC21F33004B9382 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB4E4AAE1BC21F33004B9382 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CB4E4AB61BC2200B004B9382 /* ZYXSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4E4AB51BC2200B004B9382 /* ZYXSignInViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -33,6 +40,10 @@
 		CB68C83A1BC55AC5007E23DB /* ZYXDiscoverPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB68C8391BC55AC5007E23DB /* ZYXDiscoverPageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CB68C8471BC563CB007E23DB /* ZYXMovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB68C8461BC563CB007E23DB /* ZYXMovieListViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CB68C8501BC56B68007E23DB /* ZYXCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CB68C84F1BC56B68007E23DB /* ZYXCollectionViewLayout.m */; settings = {ASSET_TAGS = (); }; };
+		CBA268861BD4EAE70088B2B9 /* MovieCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA268851BD4EAE70088B2B9 /* MovieCollection.storyboard */; settings = {ASSET_TAGS = (); }; };
+		CBA3B9DD1BD0A19500912D5D /* SearchResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA3B9DC1BD0A19500912D5D /* SearchResult.storyboard */; settings = {ASSET_TAGS = (); }; };
+		CBA3B9E01BD0A1BA00912D5D /* ZYXSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA3B9DF1BD0A1BA00912D5D /* ZYXSearchResultTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CBA3B9E41BD0A88000912D5D /* ZYXSearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA3B9E31BD0A88000912D5D /* ZYXSearchResultTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		CBC4434F1BC8A2D2001C196A /* ZYXPages.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC4434E1BC8A2D2001C196A /* ZYXPages.m */; settings = {ASSET_TAGS = (); }; };
 		CBC443531BC8B404001C196A /* ZYXNetworkLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC443521BC8B404001C196A /* ZYXNetworkLoadingViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CBC443561BC8BBC9001C196A /* ZYXActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC443551BC8BBC9001C196A /* ZYXActivityIndicator.m */; settings = {ASSET_TAGS = (); }; };
@@ -41,6 +52,32 @@
 		CBC9E6B91BC758D700626613 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC9E6B81BC758D700626613 /* List.m */; settings = {ASSET_TAGS = (); }; };
 		CBC9E6BD1BC76B2100626613 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC9E6BC1BC76B2100626613 /* Client.m */; settings = {ASSET_TAGS = (); }; };
 		CBC9E6C71BC7EBB600626613 /* ZYXMovieCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC9E6C61BC7EBB600626613 /* ZYXMovieCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09701BD5D19100B8E239 /* ZYXMovieDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA096F1BD5D19100B8E239 /* ZYXMovieDetailCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09741BD5D4DB00B8E239 /* ZYXMovieDetailsDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09731BD5D4DB00B8E239 /* ZYXMovieDetailsDescriptionCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09781BD5D5C600B8E239 /* ZYXMovieDetailsPopularityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09771BD5D5C600B8E239 /* ZYXMovieDetailsPopularityCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA097C1BD6337B00B8E239 /* ZYXMovieDetailsFavoriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA097B1BD6337B00B8E239 /* ZYXMovieDetailsFavoriteCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09801BD635DD00B8E239 /* ZYXMovieDetailsSimilarMoviesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA097F1BD635DD00B8E239 /* ZYXMovieDetailsSimilarMoviesCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09831BD6360400B8E239 /* ZYXSimilarMoviesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09821BD6360400B8E239 /* ZYXSimilarMoviesCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA098A1BD63AB400B8E239 /* ZYXCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09891BD63AB400B8E239 /* ZYXCommentsCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA098E1BD63B9800B8E239 /* ZYXViewAllCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA098D1BD63B9800B8E239 /* ZYXViewAllCommentsCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09911BD63BC300B8E239 /* ZYXLeaveACommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09901BD63BC300B8E239 /* ZYXLeaveACommentCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09941BD66CDB00B8E239 /* ZYXMovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09931BD66CDB00B8E239 /* ZYXMovieDetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09971BD66D1F00B8E239 /* ZYXNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09961BD66D1F00B8E239 /* ZYXNavigationController.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA099B1BD6708800B8E239 /* MovieDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA099A1BD6708800B8E239 /* MovieDetails.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA099F1BD6724200B8E239 /* Genres.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA099E1BD6724200B8E239 /* Genres.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09A31BD6737500B8E239 /* MovieStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09A21BD6737500B8E239 /* MovieStatus.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09A71BD6741B00B8E239 /* MovieRated.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09A61BD6741B00B8E239 /* MovieRated.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09AA1BD674D000B8E239 /* MovieImages.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09A91BD674D000B8E239 /* MovieImages.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09AE1BD6750200B8E239 /* Backdrops.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09AD1BD6750200B8E239 /* Backdrops.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09B11BD675CC00B8E239 /* MoviePosters.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09B01BD675CC00B8E239 /* MoviePosters.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09B41BD6776500B8E239 /* MovieReviews.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09B31BD6776500B8E239 /* MovieReviews.m */; settings = {ASSET_TAGS = (); }; };
+		CBEA09B81BD6779400B8E239 /* ReviewDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA09B71BD6779400B8E239 /* ReviewDetails.m */; settings = {ASSET_TAGS = (); }; };
+		CBF2397F1BCC9C4A00A218A4 /* ZYXMovieStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF2397E1BCC9C4A00A218A4 /* ZYXMovieStreamViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CBF239831BCCAA7B00A218A4 /* ZYXMovieCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF239821BCCAA7B00A218A4 /* ZYXMovieCollectionViewFlowLayout.m */; settings = {ASSET_TAGS = (); }; };
+		CBF239891BCCE0EF00A218A4 /* ZYXMovieFlowCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF239881BCCE0EF00A218A4 /* ZYXMovieFlowCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		CBF239901BCD4BAB00A218A4 /* ZYXDiscoverPages.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF2398F1BCD4BAB00A218A4 /* ZYXDiscoverPages.m */; settings = {ASSET_TAGS = (); }; };
+		CBF239931BCD4C8B00A218A4 /* ZYXMyPages.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF239921BCD4C8B00A218A4 /* ZYXMyPages.m */; settings = {ASSET_TAGS = (); }; };
+		CBF239961BCD51A800A218A4 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF239951BCD51A800A218A4 /* SideMenuViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CBF7CF7C1BCB423D00E88181 /* MovieDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF7CF7B1BCB423D00E88181 /* MovieDetails.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CBF7CF7F1BCB456400E88181 /* ZYXMovieListRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7CF7E1BCB456400E88181 /* ZYXMovieListRefreshView.m */; settings = {ASSET_TAGS = (); }; };
 		CBF7CF831BCB606500E88181 /* ZYXMovieDetailRefreshItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7CF821BCB606500E88181 /* ZYXMovieDetailRefreshItem.m */; settings = {ASSET_TAGS = (); }; };
@@ -87,8 +124,18 @@
 		CB09803B1BBE295E00679768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB09804B1BBE391000679768 /* ZYXTMDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXTMDBClient.h; path = Networking/ZYXTMDBClient.h; sourceTree = "<group>"; };
 		CB09804C1BBE391000679768 /* ZYXTMDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXTMDBClient.m; path = Networking/ZYXTMDBClient.m; sourceTree = "<group>"; };
+		CB0B47DF1BCDE59600909474 /* MenuItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItems.h; path = Model/MenuItems.h; sourceTree = "<group>"; };
+		CB0B47E01BCDE59600909474 /* MenuItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItems.m; path = Model/MenuItems.m; sourceTree = "<group>"; };
+		CB0B47E31BCDECF400909474 /* ZYXMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMenuCell.h; path = View/ZYXMenuCell.h; sourceTree = "<group>"; };
+		CB0B47E41BCDECF400909474 /* ZYXMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMenuCell.m; path = View/ZYXMenuCell.m; sourceTree = "<group>"; };
+		CB0B47E71BCDF1F000909474 /* ZYXContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXContainerViewController.h; path = Controller/ZYXContainerViewController.h; sourceTree = "<group>"; };
+		CB0B47E81BCDF1F000909474 /* ZYXContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXContainerViewController.m; path = Controller/ZYXContainerViewController.m; sourceTree = "<group>"; };
+		CB0B47EB1BCE450400909474 /* ZYXMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMenuButton.h; path = View/ZYXMenuButton.h; sourceTree = "<group>"; };
+		CB0B47EC1BCE450400909474 /* ZYXMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMenuButton.m; path = View/ZYXMenuButton.m; sourceTree = "<group>"; };
 		CB0DF06D1BC95DDD00273861 /* ZYXConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYXConfig.h; sourceTree = "<group>"; };
 		CB0DF06E1BC95DDD00273861 /* ZYXConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYXConfig.m; sourceTree = "<group>"; };
+		CB1F6DDC1BD47909007F23C5 /* ZYXRatingCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXRatingCircle.h; path = View/ZYXRatingCircle.h; sourceTree = "<group>"; };
+		CB1F6DDD1BD47909007F23C5 /* ZYXRatingCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXRatingCircle.m; path = View/ZYXRatingCircle.m; sourceTree = "<group>"; };
 		CB2AF7881BC1F55400075802 /* TMDBClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDBClientTest.m; sourceTree = "<group>"; };
 		CB2ED3DE1BC2980500DAB877 /* StoryBoardUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBoardUtilities.h; sourceTree = "<group>"; };
 		CB2ED3DF1BC2980500DAB877 /* StoryBoardUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryBoardUtilities.m; sourceTree = "<group>"; };
@@ -101,6 +148,9 @@
 		CB2ED3FA1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ZYXTMDBClient+ZYXConstants.h"; path = "Networking/ZYXTMDBClient+ZYXConstants.h"; sourceTree = "<group>"; };
 		CB2ED3FB1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ZYXTMDBClient+ZYXConstants.m"; path = "Networking/ZYXTMDBClient+ZYXConstants.m"; sourceTree = "<group>"; };
 		CB3468931BCA9C3D002F2955 /* MovieList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieList.storyboard; sourceTree = "<group>"; };
+		CB48DEDC1BDB14BA00D090B9 /* ZYXMovieStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieStatus.h; path = Model/ZYXMovieStatus.h; sourceTree = "<group>"; };
+		CB48DEDD1BDB14BA00D090B9 /* ZYXMovieStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieStatus.m; path = Model/ZYXMovieStatus.m; sourceTree = "<group>"; };
+		CB48DEDF1BDB186100D090B9 /* ZYXClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYXClientTest.m; sourceTree = "<group>"; };
 		CB4E4AAC1BC21731004B9382 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		CB4E4AAE1BC21F33004B9382 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB4E4AB41BC2200B004B9382 /* ZYXSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXSignInViewController.h; path = Controller/ZYXSignInViewController.h; sourceTree = "<group>"; };
@@ -115,6 +165,12 @@
 		CB68C8461BC563CB007E23DB /* ZYXMovieListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieListViewController.m; path = Controller/ZYXMovieListViewController.m; sourceTree = "<group>"; };
 		CB68C84E1BC56B68007E23DB /* ZYXCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXCollectionViewLayout.h; path = View/ZYXCollectionViewLayout.h; sourceTree = "<group>"; };
 		CB68C84F1BC56B68007E23DB /* ZYXCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXCollectionViewLayout.m; path = View/ZYXCollectionViewLayout.m; sourceTree = "<group>"; };
+		CBA268851BD4EAE70088B2B9 /* MovieCollection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieCollection.storyboard; sourceTree = "<group>"; };
+		CBA3B9DC1BD0A19500912D5D /* SearchResult.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchResult.storyboard; sourceTree = "<group>"; };
+		CBA3B9DE1BD0A1BA00912D5D /* ZYXSearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYXSearchResultTableViewController.h; sourceTree = "<group>"; };
+		CBA3B9DF1BD0A1BA00912D5D /* ZYXSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYXSearchResultTableViewController.m; sourceTree = "<group>"; };
+		CBA3B9E21BD0A88000912D5D /* ZYXSearchResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXSearchResultTableViewCell.h; path = View/ZYXSearchResultTableViewCell.h; sourceTree = "<group>"; };
+		CBA3B9E31BD0A88000912D5D /* ZYXSearchResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXSearchResultTableViewCell.m; path = View/ZYXSearchResultTableViewCell.m; sourceTree = "<group>"; };
 		CBC4434D1BC8A2D2001C196A /* ZYXPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYXPages.h; sourceTree = "<group>"; };
 		CBC4434E1BC8A2D2001C196A /* ZYXPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYXPages.m; sourceTree = "<group>"; };
 		CBC443511BC8B404001C196A /* ZYXNetworkLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXNetworkLoadingViewController.h; path = Controller/ZYXNetworkLoadingViewController.h; sourceTree = "<group>"; };
@@ -131,6 +187,58 @@
 		CBC9E6BC1BC76B2100626613 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Client.m; path = Model/Client.m; sourceTree = "<group>"; };
 		CBC9E6C51BC7EBB600626613 /* ZYXMovieCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieCollectionViewCell.h; path = View/ZYXMovieCollectionViewCell.h; sourceTree = "<group>"; };
 		CBC9E6C61BC7EBB600626613 /* ZYXMovieCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieCollectionViewCell.m; path = View/ZYXMovieCollectionViewCell.m; sourceTree = "<group>"; };
+		CBEA096E1BD5D19100B8E239 /* ZYXMovieDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYXMovieDetailCell.h; sourceTree = "<group>"; };
+		CBEA096F1BD5D19100B8E239 /* ZYXMovieDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYXMovieDetailCell.m; sourceTree = "<group>"; };
+		CBEA09721BD5D4DB00B8E239 /* ZYXMovieDetailsDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieDetailsDescriptionCell.h; path = View/ZYXMovieDetailsDescriptionCell.h; sourceTree = "<group>"; };
+		CBEA09731BD5D4DB00B8E239 /* ZYXMovieDetailsDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieDetailsDescriptionCell.m; path = View/ZYXMovieDetailsDescriptionCell.m; sourceTree = "<group>"; };
+		CBEA09761BD5D5C600B8E239 /* ZYXMovieDetailsPopularityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieDetailsPopularityCell.h; path = View/ZYXMovieDetailsPopularityCell.h; sourceTree = "<group>"; };
+		CBEA09771BD5D5C600B8E239 /* ZYXMovieDetailsPopularityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieDetailsPopularityCell.m; path = View/ZYXMovieDetailsPopularityCell.m; sourceTree = "<group>"; };
+		CBEA097A1BD6337B00B8E239 /* ZYXMovieDetailsFavoriteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieDetailsFavoriteCell.h; path = View/ZYXMovieDetailsFavoriteCell.h; sourceTree = "<group>"; };
+		CBEA097B1BD6337B00B8E239 /* ZYXMovieDetailsFavoriteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieDetailsFavoriteCell.m; path = View/ZYXMovieDetailsFavoriteCell.m; sourceTree = "<group>"; };
+		CBEA097E1BD635DD00B8E239 /* ZYXMovieDetailsSimilarMoviesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieDetailsSimilarMoviesCell.h; path = View/ZYXMovieDetailsSimilarMoviesCell.h; sourceTree = "<group>"; };
+		CBEA097F1BD635DD00B8E239 /* ZYXMovieDetailsSimilarMoviesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieDetailsSimilarMoviesCell.m; path = View/ZYXMovieDetailsSimilarMoviesCell.m; sourceTree = "<group>"; };
+		CBEA09811BD6360400B8E239 /* ZYXSimilarMoviesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXSimilarMoviesCollectionViewCell.h; path = View/ZYXSimilarMoviesCollectionViewCell.h; sourceTree = "<group>"; };
+		CBEA09821BD6360400B8E239 /* ZYXSimilarMoviesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXSimilarMoviesCollectionViewCell.m; path = View/ZYXSimilarMoviesCollectionViewCell.m; sourceTree = "<group>"; };
+		CBEA09881BD63AB400B8E239 /* ZYXCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXCommentsCell.h; path = View/ZYXCommentsCell.h; sourceTree = "<group>"; };
+		CBEA09891BD63AB400B8E239 /* ZYXCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXCommentsCell.m; path = View/ZYXCommentsCell.m; sourceTree = "<group>"; };
+		CBEA098C1BD63B9800B8E239 /* ZYXViewAllCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXViewAllCommentsCell.h; path = View/ZYXViewAllCommentsCell.h; sourceTree = "<group>"; };
+		CBEA098D1BD63B9800B8E239 /* ZYXViewAllCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXViewAllCommentsCell.m; path = View/ZYXViewAllCommentsCell.m; sourceTree = "<group>"; };
+		CBEA098F1BD63BC300B8E239 /* ZYXLeaveACommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYXLeaveACommentCell.h; sourceTree = "<group>"; };
+		CBEA09901BD63BC300B8E239 /* ZYXLeaveACommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYXLeaveACommentCell.m; sourceTree = "<group>"; };
+		CBEA09921BD66CDB00B8E239 /* ZYXMovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieDetailsViewController.h; path = Controller/ZYXMovieDetailsViewController.h; sourceTree = "<group>"; };
+		CBEA09931BD66CDB00B8E239 /* ZYXMovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieDetailsViewController.m; path = Controller/ZYXMovieDetailsViewController.m; sourceTree = "<group>"; };
+		CBEA09951BD66D1F00B8E239 /* ZYXNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXNavigationController.h; path = Controller/ZYXNavigationController.h; sourceTree = "<group>"; };
+		CBEA09961BD66D1F00B8E239 /* ZYXNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXNavigationController.m; path = Controller/ZYXNavigationController.m; sourceTree = "<group>"; };
+		CBEA09991BD6708800B8E239 /* MovieDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieDetails.h; path = Model/MovieDetails.h; sourceTree = "<group>"; };
+		CBEA099A1BD6708800B8E239 /* MovieDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieDetails.m; path = Model/MovieDetails.m; sourceTree = "<group>"; };
+		CBEA099D1BD6724200B8E239 /* Genres.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Genres.h; path = Model/Genres.h; sourceTree = "<group>"; };
+		CBEA099E1BD6724200B8E239 /* Genres.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Genres.m; path = Model/Genres.m; sourceTree = "<group>"; };
+		CBEA09A11BD6737500B8E239 /* MovieStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieStatus.h; path = Model/MovieStatus.h; sourceTree = "<group>"; };
+		CBEA09A21BD6737500B8E239 /* MovieStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieStatus.m; path = Model/MovieStatus.m; sourceTree = "<group>"; };
+		CBEA09A51BD6741B00B8E239 /* MovieRated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieRated.h; path = Model/MovieRated.h; sourceTree = "<group>"; };
+		CBEA09A61BD6741B00B8E239 /* MovieRated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieRated.m; path = Model/MovieRated.m; sourceTree = "<group>"; };
+		CBEA09A81BD674D000B8E239 /* MovieImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieImages.h; path = Model/MovieImages.h; sourceTree = "<group>"; };
+		CBEA09A91BD674D000B8E239 /* MovieImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieImages.m; path = Model/MovieImages.m; sourceTree = "<group>"; };
+		CBEA09AC1BD6750200B8E239 /* Backdrops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Backdrops.h; path = Model/Backdrops.h; sourceTree = "<group>"; };
+		CBEA09AD1BD6750200B8E239 /* Backdrops.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Backdrops.m; path = Model/Backdrops.m; sourceTree = "<group>"; };
+		CBEA09AF1BD675CC00B8E239 /* MoviePosters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoviePosters.h; path = Model/MoviePosters.h; sourceTree = "<group>"; };
+		CBEA09B01BD675CC00B8E239 /* MoviePosters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoviePosters.m; path = Model/MoviePosters.m; sourceTree = "<group>"; };
+		CBEA09B21BD6776500B8E239 /* MovieReviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieReviews.h; path = Model/MovieReviews.h; sourceTree = "<group>"; };
+		CBEA09B31BD6776500B8E239 /* MovieReviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieReviews.m; path = Model/MovieReviews.m; sourceTree = "<group>"; };
+		CBEA09B61BD6779400B8E239 /* ReviewDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewDetails.h; path = Model/ReviewDetails.h; sourceTree = "<group>"; };
+		CBEA09B71BD6779400B8E239 /* ReviewDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewDetails.m; path = Model/ReviewDetails.m; sourceTree = "<group>"; };
+		CBF2397D1BCC9C4A00A218A4 /* ZYXMovieStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieStreamViewController.h; path = Controller/ZYXMovieStreamViewController.h; sourceTree = "<group>"; };
+		CBF2397E1BCC9C4A00A218A4 /* ZYXMovieStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieStreamViewController.m; path = Controller/ZYXMovieStreamViewController.m; sourceTree = "<group>"; };
+		CBF239811BCCAA7B00A218A4 /* ZYXMovieCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieCollectionViewFlowLayout.h; path = View/ZYXMovieCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		CBF239821BCCAA7B00A218A4 /* ZYXMovieCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieCollectionViewFlowLayout.m; path = View/ZYXMovieCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		CBF239871BCCE0EF00A218A4 /* ZYXMovieFlowCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieFlowCollectionViewCell.h; path = View/ZYXMovieFlowCollectionViewCell.h; sourceTree = "<group>"; };
+		CBF239881BCCE0EF00A218A4 /* ZYXMovieFlowCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieFlowCollectionViewCell.m; path = View/ZYXMovieFlowCollectionViewCell.m; sourceTree = "<group>"; };
+		CBF2398E1BCD4BAB00A218A4 /* ZYXDiscoverPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXDiscoverPages.h; path = Model/ZYXDiscoverPages.h; sourceTree = "<group>"; };
+		CBF2398F1BCD4BAB00A218A4 /* ZYXDiscoverPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXDiscoverPages.m; path = Model/ZYXDiscoverPages.m; sourceTree = "<group>"; };
+		CBF239911BCD4C8B00A218A4 /* ZYXMyPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMyPages.h; path = Model/ZYXMyPages.h; sourceTree = "<group>"; };
+		CBF239921BCD4C8B00A218A4 /* ZYXMyPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMyPages.m; path = Model/ZYXMyPages.m; sourceTree = "<group>"; };
+		CBF239941BCD51A800A218A4 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuViewController.h; path = Controller/SideMenuViewController.h; sourceTree = "<group>"; };
+		CBF239951BCD51A800A218A4 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuViewController.m; path = Controller/SideMenuViewController.m; sourceTree = "<group>"; };
 		CBF7CF7B1BCB423D00E88181 /* MovieDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieDetails.storyboard; sourceTree = "<group>"; };
 		CBF7CF7D1BCB456400E88181 /* ZYXMovieListRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYXMovieListRefreshView.h; path = View/ZYXMovieListRefreshView.h; sourceTree = "<group>"; };
 		CBF7CF7E1BCB456400E88181 /* ZYXMovieListRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYXMovieListRefreshView.m; path = View/ZYXMovieListRefreshView.m; sourceTree = "<group>"; };
@@ -230,6 +338,7 @@
 				CB09802E1BBE295E00679768 /* MovieAndITests.m */,
 				CB0980301BBE295E00679768 /* Info.plist */,
 				CB2AF7881BC1F55400075802 /* TMDBClientTest.m */,
+				CB48DEDF1BDB186100D090B9 /* ZYXClientTest.m */,
 			);
 			name = MovieAndITest;
 			path = MovieAndITests;
@@ -257,6 +366,42 @@
 				CB2ED3FB1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.m */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		CB0B47E21BCDE59B00909474 /* MenuItems */ = {
+			isa = PBXGroup;
+			children = (
+				CB0B47DF1BCDE59600909474 /* MenuItems.h */,
+				CB0B47E01BCDE59600909474 /* MenuItems.m */,
+			);
+			name = MenuItems;
+			sourceTree = "<group>";
+		};
+		CB0B47E61BCDECF800909474 /* ZYXMenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB0B47E31BCDECF400909474 /* ZYXMenuCell.h */,
+				CB0B47E41BCDECF400909474 /* ZYXMenuCell.m */,
+			);
+			name = ZYXMenuCell;
+			sourceTree = "<group>";
+		};
+		CB0B47EA1BCDF1F400909474 /* ContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				CB0B47E71BCDF1F000909474 /* ZYXContainerViewController.h */,
+				CB0B47E81BCDF1F000909474 /* ZYXContainerViewController.m */,
+			);
+			name = ContainerView;
+			sourceTree = "<group>";
+		};
+		CB1F6DDF1BD47912007F23C5 /* RatingCircle */ = {
+			isa = PBXGroup;
+			children = (
+				CB1F6DDC1BD47909007F23C5 /* ZYXRatingCircle.h */,
+				CB1F6DDD1BD47909007F23C5 /* ZYXRatingCircle.m */,
+			);
+			name = RatingCircle;
 			sourceTree = "<group>";
 		};
 		CB2ED3E11BC2980A00DAB877 /* Utilities */ = {
@@ -308,6 +453,12 @@
 				CBC9E6B61BC756B000626613 /* Movie */,
 				CBC9E6BA1BC758DA00626613 /* List */,
 				CBC9E6BE1BC76B2400626613 /* Client */,
+				CB0B47E21BCDE59B00909474 /* MenuItems */,
+				CBEA099C1BD6708C00B8E239 /* MovieDetails */,
+				CBEA09A01BD6724700B8E239 /* Genres */,
+				CBEA09A41BD6737800B8E239 /* MovieStatus */,
+				CBEA09AB1BD674D400B8E239 /* MovieImages */,
+				CBEA09B51BD6776C00B8E239 /* MovieReviews */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -320,6 +471,8 @@
 				CB68C8311BC532EB007E23DB /* TabBarController.storyboard */,
 				CB68C8361BC55A70007E23DB /* DiscoverPage.storyboard */,
 				CB3468931BCA9C3D002F2955 /* MovieList.storyboard */,
+				CBA268851BD4EAE70088B2B9 /* MovieCollection.storyboard */,
+				CBA3B9DC1BD0A19500912D5D /* SearchResult.storyboard */,
 				CBF7CF7B1BCB423D00E88181 /* MovieDetails.storyboard */,
 			);
 			name = Storyboard;
@@ -328,10 +481,15 @@
 		CB4E4AB31BC21FDE004B9382 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CBA3B9E11BD0A1BF00912D5D /* Search */,
 				CB2ED3E51BC2997700DAB877 /* SignIn */,
 				CB2ED3E91BC299C000DAB877 /* TabBar */,
 				CB68C83B1BC55AC9007E23DB /* DiscoverPage */,
 				CB68C8411BC562DD007E23DB /* MovieCollection */,
+				CBF239801BCC9C4F00A218A4 /* MovieStream */,
+				CBF239971BCD51AC00A218A4 /* SlideMenu */,
+				CB0B47EA1BCDF1F400909474 /* ContainerView */,
+				CBEA09981BD66D2400B8E239 /* MovieDetails */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -344,6 +502,7 @@
 				CBC9E6C81BC7EBBA00626613 /* Cell */,
 				CBC443571BC8BBCD001C196A /* ActivityIndicator */,
 				CBF7CF801BCB456800E88181 /* RefreshView */,
+				CB1F6DDF1BD47912007F23C5 /* RatingCircle */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -368,11 +527,33 @@
 			name = MovieCollection;
 			sourceTree = "<group>";
 		};
+		CBA3B9E11BD0A1BF00912D5D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CBA3B9DE1BD0A1BA00912D5D /* ZYXSearchResultTableViewController.h */,
+				CBA3B9DF1BD0A1BA00912D5D /* ZYXSearchResultTableViewController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		CBA3B9E51BD0A88500912D5D /* ZYXSearchCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBA3B9E21BD0A88000912D5D /* ZYXSearchResultTableViewCell.h */,
+				CBA3B9E31BD0A88000912D5D /* ZYXSearchResultTableViewCell.m */,
+			);
+			name = ZYXSearchCell;
+			sourceTree = "<group>";
+		};
 		CBC443501BC8A2D6001C196A /* Page */ = {
 			isa = PBXGroup;
 			children = (
 				CBC4434D1BC8A2D2001C196A /* ZYXPages.h */,
 				CBC4434E1BC8A2D2001C196A /* ZYXPages.m */,
+				CBF2398E1BCD4BAB00A218A4 /* ZYXDiscoverPages.h */,
+				CBF2398F1BCD4BAB00A218A4 /* ZYXDiscoverPages.m */,
+				CBF239911BCD4C8B00A218A4 /* ZYXMyPages.h */,
+				CBF239921BCD4C8B00A218A4 /* ZYXMyPages.m */,
 			);
 			name = Page;
 			sourceTree = "<group>";
@@ -427,6 +608,8 @@
 			children = (
 				CB4E4AB71BC229F5004B9382 /* borderedButton.h */,
 				CB4E4AB81BC229F5004B9382 /* borderedButton.m */,
+				CB0B47EB1BCE450400909474 /* ZYXMenuButton.h */,
+				CB0B47EC1BCE450400909474 /* ZYXMenuButton.m */,
 			);
 			name = Button;
 			sourceTree = "<group>";
@@ -436,6 +619,8 @@
 			children = (
 				CB68C84E1BC56B68007E23DB /* ZYXCollectionViewLayout.h */,
 				CB68C84F1BC56B68007E23DB /* ZYXCollectionViewLayout.m */,
+				CBF239811BCCAA7B00A218A4 /* ZYXMovieCollectionViewFlowLayout.h */,
+				CBF239821BCCAA7B00A218A4 /* ZYXMovieCollectionViewFlowLayout.m */,
 			);
 			name = Layout;
 			sourceTree = "<group>";
@@ -444,6 +629,15 @@
 			isa = PBXGroup;
 			children = (
 				CBC9E6C91BC7EBC700626613 /* MovieCollectionCell */,
+				CBF2398A1BCCE6B700A218A4 /* MovieCollectionFlowCell */,
+				CB0B47E61BCDECF800909474 /* ZYXMenuCell */,
+				CBA3B9E51BD0A88500912D5D /* ZYXSearchCell */,
+				CBEA09711BD5D19700B8E239 /* MovieDetailCell */,
+				CBEA09751BD5D4E000B8E239 /* MovieDetailsDescriptionCell */,
+				CBEA09791BD5D6C000B8E239 /* MovieDetailsPopularCell */,
+				CBEA097D1BD6338100B8E239 /* MovieDetailsFavoriteCell */,
+				CBEA09841BD6360A00B8E239 /* SimilarMoviesCollectionCell */,
+				CBEA098B1BD63AB900B8E239 /* CommentCell */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -455,6 +649,159 @@
 				CBC9E6C61BC7EBB600626613 /* ZYXMovieCollectionViewCell.m */,
 			);
 			name = MovieCollectionCell;
+			sourceTree = "<group>";
+		};
+		CBEA09711BD5D19700B8E239 /* MovieDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA096E1BD5D19100B8E239 /* ZYXMovieDetailCell.h */,
+				CBEA096F1BD5D19100B8E239 /* ZYXMovieDetailCell.m */,
+			);
+			name = MovieDetailCell;
+			sourceTree = "<group>";
+		};
+		CBEA09751BD5D4E000B8E239 /* MovieDetailsDescriptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA09721BD5D4DB00B8E239 /* ZYXMovieDetailsDescriptionCell.h */,
+				CBEA09731BD5D4DB00B8E239 /* ZYXMovieDetailsDescriptionCell.m */,
+			);
+			name = MovieDetailsDescriptionCell;
+			sourceTree = "<group>";
+		};
+		CBEA09791BD5D6C000B8E239 /* MovieDetailsPopularCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA09761BD5D5C600B8E239 /* ZYXMovieDetailsPopularityCell.h */,
+				CBEA09771BD5D5C600B8E239 /* ZYXMovieDetailsPopularityCell.m */,
+			);
+			name = MovieDetailsPopularCell;
+			sourceTree = "<group>";
+		};
+		CBEA097D1BD6338100B8E239 /* MovieDetailsFavoriteCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA097A1BD6337B00B8E239 /* ZYXMovieDetailsFavoriteCell.h */,
+				CBEA097B1BD6337B00B8E239 /* ZYXMovieDetailsFavoriteCell.m */,
+			);
+			name = MovieDetailsFavoriteCell;
+			sourceTree = "<group>";
+		};
+		CBEA09841BD6360A00B8E239 /* SimilarMoviesCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA097E1BD635DD00B8E239 /* ZYXMovieDetailsSimilarMoviesCell.h */,
+				CBEA097F1BD635DD00B8E239 /* ZYXMovieDetailsSimilarMoviesCell.m */,
+				CBEA09811BD6360400B8E239 /* ZYXSimilarMoviesCollectionViewCell.h */,
+				CBEA09821BD6360400B8E239 /* ZYXSimilarMoviesCollectionViewCell.m */,
+			);
+			name = SimilarMoviesCollectionCell;
+			sourceTree = "<group>";
+		};
+		CBEA098B1BD63AB900B8E239 /* CommentCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA09881BD63AB400B8E239 /* ZYXCommentsCell.h */,
+				CBEA09891BD63AB400B8E239 /* ZYXCommentsCell.m */,
+				CBEA098C1BD63B9800B8E239 /* ZYXViewAllCommentsCell.h */,
+				CBEA098D1BD63B9800B8E239 /* ZYXViewAllCommentsCell.m */,
+				CBEA098F1BD63BC300B8E239 /* ZYXLeaveACommentCell.h */,
+				CBEA09901BD63BC300B8E239 /* ZYXLeaveACommentCell.m */,
+			);
+			name = CommentCell;
+			sourceTree = "<group>";
+		};
+		CBEA09981BD66D2400B8E239 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA09921BD66CDB00B8E239 /* ZYXMovieDetailsViewController.h */,
+				CBEA09931BD66CDB00B8E239 /* ZYXMovieDetailsViewController.m */,
+				CBEA09951BD66D1F00B8E239 /* ZYXNavigationController.h */,
+				CBEA09961BD66D1F00B8E239 /* ZYXNavigationController.m */,
+			);
+			name = MovieDetails;
+			sourceTree = "<group>";
+		};
+		CBEA099C1BD6708C00B8E239 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA09991BD6708800B8E239 /* MovieDetails.h */,
+				CBEA099A1BD6708800B8E239 /* MovieDetails.m */,
+			);
+			name = MovieDetails;
+			sourceTree = "<group>";
+		};
+		CBEA09A01BD6724700B8E239 /* Genres */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA099D1BD6724200B8E239 /* Genres.h */,
+				CBEA099E1BD6724200B8E239 /* Genres.m */,
+			);
+			name = Genres;
+			sourceTree = "<group>";
+		};
+		CBEA09A41BD6737800B8E239 /* MovieStatus */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA09A11BD6737500B8E239 /* MovieStatus.h */,
+				CBEA09A21BD6737500B8E239 /* MovieStatus.m */,
+				CBEA09A51BD6741B00B8E239 /* MovieRated.h */,
+				CBEA09A61BD6741B00B8E239 /* MovieRated.m */,
+				CB48DEDC1BDB14BA00D090B9 /* ZYXMovieStatus.h */,
+				CB48DEDD1BDB14BA00D090B9 /* ZYXMovieStatus.m */,
+			);
+			name = MovieStatus;
+			sourceTree = "<group>";
+		};
+		CBEA09AB1BD674D400B8E239 /* MovieImages */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA09A81BD674D000B8E239 /* MovieImages.h */,
+				CBEA09A91BD674D000B8E239 /* MovieImages.m */,
+				CBEA09AC1BD6750200B8E239 /* Backdrops.h */,
+				CBEA09AD1BD6750200B8E239 /* Backdrops.m */,
+				CBEA09AF1BD675CC00B8E239 /* MoviePosters.h */,
+				CBEA09B01BD675CC00B8E239 /* MoviePosters.m */,
+			);
+			name = MovieImages;
+			sourceTree = "<group>";
+		};
+		CBEA09B51BD6776C00B8E239 /* MovieReviews */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA09B21BD6776500B8E239 /* MovieReviews.h */,
+				CBEA09B31BD6776500B8E239 /* MovieReviews.m */,
+				CBEA09B61BD6779400B8E239 /* ReviewDetails.h */,
+				CBEA09B71BD6779400B8E239 /* ReviewDetails.m */,
+			);
+			name = MovieReviews;
+			sourceTree = "<group>";
+		};
+		CBF239801BCC9C4F00A218A4 /* MovieStream */ = {
+			isa = PBXGroup;
+			children = (
+				CBF2397D1BCC9C4A00A218A4 /* ZYXMovieStreamViewController.h */,
+				CBF2397E1BCC9C4A00A218A4 /* ZYXMovieStreamViewController.m */,
+			);
+			name = MovieStream;
+			sourceTree = "<group>";
+		};
+		CBF2398A1BCCE6B700A218A4 /* MovieCollectionFlowCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBF239871BCCE0EF00A218A4 /* ZYXMovieFlowCollectionViewCell.h */,
+				CBF239881BCCE0EF00A218A4 /* ZYXMovieFlowCollectionViewCell.m */,
+			);
+			name = MovieCollectionFlowCell;
+			sourceTree = "<group>";
+		};
+		CBF239971BCD51AC00A218A4 /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CBF239941BCD51A800A218A4 /* SideMenuViewController.h */,
+				CBF239951BCD51A800A218A4 /* SideMenuViewController.m */,
+			);
+			name = SlideMenu;
 			sourceTree = "<group>";
 		};
 		CBF7CF801BCB456800E88181 /* RefreshView */ = {
@@ -590,11 +937,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA268861BD4EAE70088B2B9 /* MovieCollection.storyboard in Resources */,
 				CB4E4AAF1BC21F33004B9382 /* LaunchScreen.storyboard in Resources */,
 				CBF7CF7C1BCB423D00E88181 /* MovieDetails.storyboard in Resources */,
 				CB4E4AAD1BC21731004B9382 /* SignIn.storyboard in Resources */,
 				CB68C8321BC532EB007E23DB /* TabBarController.storyboard in Resources */,
 				CB3468941BCA9C3D002F2955 /* MovieList.storyboard in Resources */,
+				CBA3B9DD1BD0A19500912D5D /* SearchResult.storyboard in Resources */,
 				CB0980211BBE295D00679768 /* Assets.xcassets in Resources */,
 				CB68C8371BC55A70007E23DB /* DiscoverPage.storyboard in Resources */,
 			);
@@ -699,32 +1048,66 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBF239931BCD4C8B00A218A4 /* ZYXMyPages.m in Sources */,
 				CB68C83A1BC55AC5007E23DB /* ZYXDiscoverPageViewController.m in Sources */,
+				CBA3B9E41BD0A88000912D5D /* ZYXSearchResultTableViewCell.m in Sources */,
 				CB4E4AB91BC229F5004B9382 /* borderedButton.m in Sources */,
 				CBC9E6B11BC754A400626613 /* User.m in Sources */,
+				CBEA09971BD66D1F00B8E239 /* ZYXNavigationController.m in Sources */,
+				CBEA09701BD5D19100B8E239 /* ZYXMovieDetailCell.m in Sources */,
 				CBC9E6B51BC756AB00626613 /* Movie.m in Sources */,
+				CB0B47E91BCDF1F000909474 /* ZYXContainerViewController.m in Sources */,
+				CBEA09941BD66CDB00B8E239 /* ZYXMovieDetailsViewController.m in Sources */,
+				CB1F6DDE1BD47909007F23C5 /* ZYXRatingCircle.m in Sources */,
 				CB2ED3EE1BC2A5FB00DAB877 /* ZYXTMDBClient+ZYXConvenience.m in Sources */,
 				CB0980161BBE295D00679768 /* AppDelegate.m in Sources */,
 				CB09804D1BBE391000679768 /* ZYXTMDBClient.m in Sources */,
+				CBEA09B41BD6776500B8E239 /* MovieReviews.m in Sources */,
+				CBEA09AA1BD674D000B8E239 /* MovieImages.m in Sources */,
+				CBEA09AE1BD6750200B8E239 /* Backdrops.m in Sources */,
 				CB2ED3E01BC2980500DAB877 /* StoryBoardUtilities.m in Sources */,
+				CB0B47ED1BCE450400909474 /* ZYXMenuButton.m in Sources */,
 				CB0DF06F1BC95DDD00273861 /* ZYXConfig.m in Sources */,
+				CBF239831BCCAA7B00A218A4 /* ZYXMovieCollectionViewFlowLayout.m in Sources */,
+				CB48DEDE1BDB14BA00D090B9 /* ZYXMovieStatus.m in Sources */,
 				CBC9E6B91BC758D700626613 /* List.m in Sources */,
+				CBF239961BCD51A800A218A4 /* SideMenuViewController.m in Sources */,
 				CB68C8471BC563CB007E23DB /* ZYXMovieListViewController.m in Sources */,
 				CB00E2CF1BCBE850005C8BFA /* CAPSPageMenu.m in Sources */,
+				CBEA09911BD63BC300B8E239 /* ZYXLeaveACommentCell.m in Sources */,
+				CBEA09B81BD6779400B8E239 /* ReviewDetails.m in Sources */,
+				CBEA09781BD5D5C600B8E239 /* ZYXMovieDetailsPopularityCell.m in Sources */,
 				CB2ED3F11BC2AC3000DAB877 /* ZYXAuthViewController.m in Sources */,
 				CB2ED3FC1BC2C70D00DAB877 /* ZYXTMDBClient+ZYXConstants.m in Sources */,
+				CBEA09831BD6360400B8E239 /* ZYXSimilarMoviesCollectionViewCell.m in Sources */,
+				CBEA098E1BD63B9800B8E239 /* ZYXViewAllCommentsCell.m in Sources */,
 				CBC443531BC8B404001C196A /* ZYXNetworkLoadingViewController.m in Sources */,
 				CB68C8501BC56B68007E23DB /* ZYXCollectionViewLayout.m in Sources */,
 				CBC4434F1BC8A2D2001C196A /* ZYXPages.m in Sources */,
 				CBF7CF831BCB606500E88181 /* ZYXMovieDetailRefreshItem.m in Sources */,
+				CBF239891BCCE0EF00A218A4 /* ZYXMovieFlowCollectionViewCell.m in Sources */,
 				CB0980131BBE295D00679768 /* main.m in Sources */,
+				CBEA099F1BD6724200B8E239 /* Genres.m in Sources */,
 				CB4E4AB61BC2200B004B9382 /* ZYXSignInViewController.m in Sources */,
+				CBEA09801BD635DD00B8E239 /* ZYXMovieDetailsSimilarMoviesCell.m in Sources */,
 				CB2ED3E81BC299BC00DAB877 /* ZYXTabBarController.m in Sources */,
 				CBC9E6BD1BC76B2100626613 /* Client.m in Sources */,
+				CB0B47E51BCDECF400909474 /* ZYXMenuCell.m in Sources */,
+				CBF2397F1BCC9C4A00A218A4 /* ZYXMovieStreamViewController.m in Sources */,
+				CBEA09B11BD675CC00B8E239 /* MoviePosters.m in Sources */,
 				CBF7CF7F1BCB456400E88181 /* ZYXMovieListRefreshView.m in Sources */,
 				CB00E2CC1BCBE789005C8BFA /* Color+Hex.m in Sources */,
+				CBEA09A31BD6737500B8E239 /* MovieStatus.m in Sources */,
 				CBC443561BC8BBC9001C196A /* ZYXActivityIndicator.m in Sources */,
+				CBEA099B1BD6708800B8E239 /* MovieDetails.m in Sources */,
+				CBEA098A1BD63AB400B8E239 /* ZYXCommentsCell.m in Sources */,
+				CBA3B9E01BD0A1BA00912D5D /* ZYXSearchResultTableViewController.m in Sources */,
+				CBEA09741BD5D4DB00B8E239 /* ZYXMovieDetailsDescriptionCell.m in Sources */,
 				CBC9E6C71BC7EBB600626613 /* ZYXMovieCollectionViewCell.m in Sources */,
+				CB0B47E11BCDE59600909474 /* MenuItems.m in Sources */,
+				CBF239901BCD4BAB00A218A4 /* ZYXDiscoverPages.m in Sources */,
+				CBEA097C1BD6337B00B8E239 /* ZYXMovieDetailsFavoriteCell.m in Sources */,
+				CBEA09A71BD6741B00B8E239 /* MovieRated.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +1115,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB48DEE01BDB186100D090B9 /* ZYXClientTest.m in Sources */,
 				CB09802F1BBE295E00679768 /* MovieAndITests.m in Sources */,
 				CB2AF7891BC1F55400075802 /* TMDBClientTest.m in Sources */,
 			);

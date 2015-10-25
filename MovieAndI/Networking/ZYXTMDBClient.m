@@ -113,13 +113,17 @@
                     completionHandler(data, nil);
                 } else {
                     NSLog(@"Your request dit return any data!");
+                    completionHandler(nil, [NSError errorWithDomain:NSNetServicesErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Your request did return any data!", nil)}]);
                 }
                 
             } else {
                 NSLog(@"Your request returned an invalid response!Status Code: %ld", statusCode);
+                NSString *errorString = [NSString stringWithFormat:@"Your request returned an invalid response!Status Code: %ld", (long)statusCode];
+                completionHandler(nil, [NSError errorWithDomain:NSNetServicesErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(errorString, nil)}]);
             }
         } else {
             NSLog(@"Your request returned an invalid response!");
+            completionHandler(nil, [NSError errorWithDomain:NSNetServicesErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Your request returned an invalid response!", nil)}]);
         }
     }];
     
@@ -174,14 +178,19 @@
                     NSLog(@"Step 3 - taskForResource's completionHandler is invoked.");
                     completionHandler(data, nil);
                 } else {
-                    NSLog(@"Your request dit return any data!");
+                    NSLog(@"Your request did return any data!");
+                    completionHandler(nil, [NSError errorWithDomain:NSNetServicesErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Your request did return any data!", nil)}]);
                 }
                 
             } else {
                 NSLog(@"Your request returned an invalid response!Status Code: %ld", statusCode);
+                NSString *errorString = [NSString stringWithFormat:@"Your request returned an invalid response!Status Code: %ld", (long)statusCode];
+                completionHandler(nil, [NSError errorWithDomain:NSNetServicesErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(errorString, nil)}]);
+                
             }
         } else {
             NSLog(@"Your request returned an invalid response!");
+            completionHandler(nil, [NSError errorWithDomain:NSNetServicesErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Your request returned an invalid response!", nil)}]);
         }
     }];
     

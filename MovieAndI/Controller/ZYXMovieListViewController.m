@@ -13,17 +13,17 @@
 #import "Movie.h"
 #import "ZYXMovieCollectionViewCell.h"
 #import "ZYXCollectionViewLayout.h"
+#import "StoryBoardUtilities.h"
 #import "ZYXMovieListRefreshView.h"
+#import "ZYXMovieDetailsViewController.h"
+#import "ZYXNavigationController.h"
 
-static NSString * const reuseIdentifier = @"MovieListCell";
-
+NSString * const reuseIdentifier = @"MovieListCell";
 @interface ZYXMovieListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, ZYXNetworkLoadingViewControllerDelegate, ZYXMovieListRefreshViewDelegate>
 
-@property (nonatomic, strong) ZYXNetworkLoadingViewController *networkingLoadingViewController;
 @property (nonatomic, assign) int requestPage;
 @property (nonatomic, assign) CGFloat refreshViewHeight;
 @property (nonatomic, strong) ZYXMovieListRefreshView *refreshView;
-
 @end
 
 @implementation ZYXMovieListViewController
@@ -53,21 +53,7 @@ static NSString * const reuseIdentifier = @"MovieListCell";
     NSLog(@"Collection view did load");
     
     [self setupCollectionView];
-    [self requestMoviesWithCompletionHandler:^(List *list, NSError *error) {
-        if (error) {
-            self.networkingLoadingContainerView.alpha = 1;
-            [self.networkingLoadingViewController showErrorView];
-        } else {
-            if (list.totalResults == 0) {
-                self.networkingLoadingContainerView.alpha = 1;
-                [self.networkingLoadingViewController showNoContentView];
-            } else {
-                self.networkingLoadingContainerView.alpha = 0;
-                self.list = list;
-                [self.collectionView reloadData];
-            }
-        }
-    }];
+    [self requestMovie];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,7 +88,8 @@ static NSString * const reuseIdentifier = @"MovieListCell";
     }
 }
 
-#pragma mark - Collection View Methods
+#pragma mark -
+#pragma mark Setup
 
 - (void)setupCollectionView
 {
@@ -122,6 +109,29 @@ static NSString * const reuseIdentifier = @"MovieListCell";
 #pragma mark -
 #pragma mark Networking Request Methods
 
+- (void)requestMovie
+{
+    self.networkingLoadingContainerView.alpha = 1;
+    [self.networkingLoadingViewController showLoadingView];
+    [self requestMoviesWithCompletionHandler:^(List *list, NSError *error) {
+        if (error) {
+            self.networkingLoadingContainerView.alpha = 1;
+            [self.networkingLoadingViewController showErrorView];
+        } else {
+            if (list.totalResults == 0) {
+                self.networkingLoadingContainerView.alpha = 1;
+                [self.networkingLoadingViewController showNoContentView];
+            } else {
+                self.movies = list.movies;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.networkingLoadingContainerView.alpha = 0;
+                    [self.collectionView reloadData];
+                });
+            }
+        }
+    }];
+}
+
 - (void)requestMoviesWithCompletionHandler:(void(^)(List *list, NSError *error))completionHandler
 {
     [self.page getMoviesWithIndex:self.page.index page:self.requestPage withCompletionHandler:completionHandler];
@@ -132,22 +142,9 @@ static NSString * const reuseIdentifier = @"MovieListCell";
 
 - (void)retryRequest
 {
-    [self requestMoviesWithCompletionHandler:^(List *list, NSError *error) {
-        if (error) {
-            self.networkingLoadingContainerView.alpha = 1;
-            [self.networkingLoadingViewController showErrorView];
-        } else {
-            if (list.totalResults == 0) {
-                self.networkingLoadingContainerView.alpha = 1;
-                [self.networkingLoadingViewController showNoContentView];
-            } else {
-                self.networkingLoadingContainerView.alpha = 0;
-                self.list = list;
-                [self.collectionView reloadData];
-            }
-        }
-    }];
+    [self requestMovie];
 }
+
 
 #pragma mark -
 #pragma mark CollectionView Data Source
@@ -159,19 +156,36 @@ static NSString * const reuseIdentifier = @"MovieListCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.list.movies count];
+    return [self.movies count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ZYXMovieCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     if ([cell isKindOfClass:[ZYXMovieCollectionViewCell class]]) {
-        if ([self.list.movies[indexPath.item] isKindOfClass:[Movie class]]) {
-            Movie *movie = (Movie *)self.list.movies[indexPath.item];
+        if ([self.movies[indexPath.item] isKindOfClass:[Movie class]]) {
+            Movie *movie = (Movie *)self.movies[indexPath.item];
             if (movie) {
-                NSURL *backdropURL = [[ZYXTMDBClient sharedInstance] getImageUrl:movie.backdropPath withSize:[ZYXTMDBClient sharedInstance].config.backdropSizes[1]];
-                NSURL *posterURL = [[ZYXTMDBClient sharedInstance] getImageUrl:movie.posterPath withSize:[ZYXTMDBClient sharedInstance].config.posterSizes[1]];
-                cell.titelLabel.text = movie.title;
+                if (movie.backdropPath && [movie.backdropPath length] > 0) {
+                    NSURL *backdropURL = [[ZYXTMDBClient sharedInstance] getImageUrl:movie.backdropPath withSize:[ZYXTMDBClient sharedInstance].config.backdropSizes[1]];
+                    [cell.backdropImageView sd_setImageWithURL:backdropURL placeholderImage:[UIImage imageNamed:@"popcorn-film-party"]];
+                } else {
+                    cell.backdropImageView.image = [UIImage imageNamed:@"popcorn-film-party"];
+                }
+                
+                if (movie.posterPath && [movie.posterPath length] > 0) {
+                    NSURL *posterURL = [[ZYXTMDBClient sharedInstance] getImageUrl:movie.posterPath withSize:[ZYXTMDBClient sharedInstance].config.posterSizes[1]];
+                    [cell.posterImageView sd_setImageWithURL:posterURL placeholderImage:[UIImage imageNamed:@"popcorn-film-party"]];
+                } else {
+                    cell.posterImageView.image = [UIImage imageNamed:@"popcorn-film-party"];
+                }
+                
+                if (movie.title && [movie.title length] > 0) {
+                    cell.titelLabel.text = movie.title;
+                } else {
+                    cell.titelLabel.hidden = YES;
+                }
+                
                 if (movie.originalTitle && [movie.originalTitle length] != 0) {
                     cell.originalTitleLabel.text = movie.originalTitle;
                 } else {
@@ -181,6 +195,7 @@ static NSString * const reuseIdentifier = @"MovieListCell";
                 if (movie.voteAverage) {
                     cell.selfScoreLabel.text = [NSString stringWithFormat:@"%0.1f", movie.voteAverage];
                     cell.starRating.value = movie.voteAverage;
+                    cell.starRating.shouldBeginGestureRecognizerBlock = nil;
                 } else {
                     cell.selfScoreLabel.hidden = YES;
                     cell.starRating.hidden = YES;
@@ -192,8 +207,6 @@ static NSString * const reuseIdentifier = @"MovieListCell";
                 } else {
                     cell.releseDateLabel.hidden = YES;
                 }
-                [cell.backdropImageView sd_setImageWithURL:backdropURL placeholderImage:[UIImage imageNamed:@"popcorn-film-party"]];
-                [cell.posterImageView sd_setImageWithURL:posterURL placeholderImage:[UIImage imageNamed:@"popcorn-film-party"]];
             }
         } else {
             NSLog(@"It's not a Movie");
@@ -212,7 +225,15 @@ static NSString * const reuseIdentifier = @"MovieListCell";
     ZYXCollectionViewLayout *layout = (ZYXCollectionViewLayout *)self.collectionView.collectionViewLayout;
     CGFloat offset = layout.dragOffset * indexPath.item;
     if (self.collectionView.contentOffset.y == offset) {
-        //TODO
+        if (self.movies && [self.movies count] >= 1) {
+            ZYXNavigationController *navigationController = (ZYXNavigationController *)[StoryBoardUtilities viewControllerForStoryboardName:@"MovieDetails" class:[ZYXNavigationController class]];
+            ZYXMovieDetailsViewController *movieDetailViewController = (ZYXMovieDetailsViewController *)navigationController.viewControllers.firstObject;
+            Movie *movie = self.movies[indexPath.item];
+            NSLog(@"%ld", [movie.id integerValue]);
+            movieDetailViewController.id = [movie.id integerValue];
+            movieDetailViewController.MovieTitle = movie.title;
+            [self presentViewController:navigationController animated:YES completion:nil];
+        }
     } else {
         [self.collectionView setContentOffset:CGPointMake(0, offset) animated:YES];
     }
@@ -249,44 +270,7 @@ static NSString * const reuseIdentifier = @"MovieListCell";
 
 - (void)refreshViewDidRefresh
 {
-    [self requestMoviesWithCompletionHandler:^(List *list, NSError *error) {
-        if (error) {
-            self.networkingLoadingContainerView.alpha = 1;
-            [self.networkingLoadingViewController showErrorView];
-        } else {
-            if (list.totalResults == 0) {
-                self.networkingLoadingContainerView.alpha = 1;
-                [self.networkingLoadingViewController showNoContentView];
-            } else {
-                self.networkingLoadingContainerView.alpha = 0;
-                [self.refreshView endRefresh];
-                self.list = list;
-                [self.collectionView reloadData];
-            }
-        }
-    }];
+    [self requestMovie];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

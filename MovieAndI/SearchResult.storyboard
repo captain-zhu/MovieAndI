@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Result Table View Controller-->
+        <scene sceneID="bhW-A6-mCF">
+            <objects>
+                <tableViewController storyboardIdentifier="ZYXSearchResultTableViewController" id="oCY-hY-njt" customClass="ZYXSearchResultTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" id="wRg-aR-VaA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="DTF-P4-Kmm">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="oCY-hY-njt" id="wcy-XM-7eA"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="64" id="ILl-KK-nXe" customClass="ZYXSearchResultTableViewCell">
+                                <rect key="frame" x="0.0" y="72" width="600" height="64"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ILl-KK-nXe" id="b7l-r4-UmR">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="63"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C3d-Xs-2Qh">
+                                            <rect key="frame" x="8" y="8" width="50" height="47"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="t8K-vj-L2J"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyB-So-hzi" userLabel="Title Label">
+                                            <rect key="frame" x="73" y="8" width="120" height="26"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="S45-Az-O8z"/>
+                                                <constraint firstAttribute="height" constant="26" id="WYV-bI-rFc"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="We3-8R-pFY" userLabel="SubTitle Label">
+                                            <rect key="frame" x="73" y="34" width="120" height="21"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="Wey-N6-f4f"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ng-p0-5qi" userLabel="Score Label">
+                                            <rect key="frame" x="510" y="21" width="49" height="21"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="cOw-6h-CKd"/>
+                                                <constraint firstAttribute="width" constant="49" id="wuP-dl-TAJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view hidden="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="F3R-KI-sT3" customClass="HCSStarRatingView">
+                                            <rect key="frame" x="380" y="8" width="130" height="47"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="130" id="QUg-r0-Zj8"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="continuous" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accurateHalfStars" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsHalfStars" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="4Ng-p0-5qi" firstAttribute="centerY" secondItem="b7l-r4-UmR" secondAttribute="centerY" id="8qd-rn-yt1"/>
+                                        <constraint firstItem="We3-8R-pFY" firstAttribute="top" secondItem="XyB-So-hzi" secondAttribute="bottom" id="KHt-Uz-a7B"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="C3d-Xs-2Qh" secondAttribute="bottom" id="Oec-Ao-D6N"/>
+                                        <constraint firstItem="XyB-So-hzi" firstAttribute="top" secondItem="b7l-r4-UmR" secondAttribute="topMargin" id="TXD-4O-5nI"/>
+                                        <constraint firstItem="C3d-Xs-2Qh" firstAttribute="top" secondItem="b7l-r4-UmR" secondAttribute="topMargin" id="TyP-WP-7Sq"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="F3R-KI-sT3" secondAttribute="bottom" id="Zmb-If-LzS"/>
+                                        <constraint firstItem="4Ng-p0-5qi" firstAttribute="leading" secondItem="F3R-KI-sT3" secondAttribute="trailing" id="d4c-UW-URI"/>
+                                        <constraint firstItem="F3R-KI-sT3" firstAttribute="top" secondItem="b7l-r4-UmR" secondAttribute="topMargin" id="hnX-oJ-fWX"/>
+                                        <constraint firstItem="4Ng-p0-5qi" firstAttribute="trailing" secondItem="b7l-r4-UmR" secondAttribute="trailingMargin" id="kQo-21-1ot"/>
+                                        <constraint firstItem="C3d-Xs-2Qh" firstAttribute="leading" secondItem="b7l-r4-UmR" secondAttribute="leadingMargin" id="n0T-vr-FYq"/>
+                                        <constraint firstItem="We3-8R-pFY" firstAttribute="bottom" secondItem="b7l-r4-UmR" secondAttribute="bottomMargin" id="vWt-Hl-Qe2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstItem="We3-8R-pFY" firstAttribute="leading" secondItem="ILl-KK-nXe" secondAttribute="leading" constant="73" id="McG-M1-1YW"/>
+                                    <constraint firstItem="XyB-So-hzi" firstAttribute="leading" secondItem="ILl-KK-nXe" secondAttribute="leading" constant="73" id="iUy-cB-pLX"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="posterImageView" destination="C3d-Xs-2Qh" id="X9t-bF-pMj"/>
+                                    <outlet property="scoreLabel" destination="4Ng-p0-5qi" id="qwg-UB-UR0"/>
+                                    <outlet property="starRatingView" destination="F3R-KI-sT3" id="XM8-Qa-eol"/>
+                                    <outlet property="subTitleLabel" destination="We3-8R-pFY" id="OAe-dK-yAZ"/>
+                                    <outlet property="titleLabel" destination="XyB-So-hzi" id="Zjf-ya-fNI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oCY-hY-njt" id="kvG-dT-dBp"/>
+                            <outlet property="delegate" destination="oCY-hY-njt" id="wfg-dY-au9"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="10K-XI-wXg"/>
+                    <connections>
+                        <outlet property="searchBar" destination="DTF-P4-Kmm" id="G4f-GX-WOq"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJh-Qg-mXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="239" y="338"/>
+        </scene>
+    </scenes>
+</document>
